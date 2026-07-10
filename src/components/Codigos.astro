@@ -1,0 +1,240 @@
+---
+import SectionLabel from './shared/SectionLabel.astro';
+import { Image } from 'astro:assets';
+
+import Code01 from '@/images/codes-cards-images/01-code-people-.png'
+import Code02 from '@/images/codes-cards-images/02-code-creativity.png'
+import Code03 from '@/images/codes-cards-images/03-code-culture.png'
+import Code04 from '@/images/codes-cards-images/04-code-together.png'
+import Code05 from '@/images/codes-cards-images/05-code-legacy.png'
+
+
+
+
+const items = [
+  {
+    num: '01',
+    head: 'LAS PERSONAS ANTES QUE LOS PERFILES',
+    desc: 'Antes que números o métricas, vemos personas, historias y propósito. Creemos en desarrollar talentos desde su autenticidad.',
+    img: Code01,
+    alt: 'Imagen de influencer que representa el código 1: Las personas antes que los perfiles'
+  },
+  {
+    num: '02',
+    head: 'CREATIVIDAD QUE CONECTA',
+    desc: 'No creemos en crear por crear. Cada idea, campaña o estrategia debe generar una conexión real entre el talento, las marcas y la audiencia.',
+    img: Code02,
+  },
+  {
+    num: '03',
+    head: 'LA CULTURA MUEVE LA INFLUENCIA',
+    desc: 'Entendemos internet, tendencias y conversación cultural. Sabemos que la relevancia nace cuando un talento logra conectar genuinamente con su generación.',
+    img: Code03,
+  },
+  {
+    num: '04',
+    head: 'CONSTRUIMOS JUNTOS',
+    desc: 'Más que managers, somos aliados creativos y estratégicos. Caminamos junto a nuestros talentos en cada etapa de su crecimiento.',
+    img: Code04,
+  },
+  {
+    num: '05',
+    head: 'LOS DETALLES CREAN LEGADO',
+    desc: 'Creemos que las grandes carreras se construyen cuidando cada detalle: desde una negociación hasta la manera en la que una historia es contada.',
+    img: Code05,
+  },
+];
+---
+
+<section class="codigos">
+  <div class="codigos__wrap">
+    <SectionLabel text="Nuestros principios" data-i18n="codigos.label" />
+    <div class="codigos__list">
+      {items.map((item) => (
+        <div class="codigos-row anim">
+          <div class="codigos-row__left">
+            <span class="codigos-row__num">{item.num}</span>
+            <div class="codigos-row__text">
+              <span class="codigos-row__title" data-i18n={`codigos.${item.num}.head`}>{item.head}</span>
+              <p class="codigos-row__desc" data-i18n={`codigos.${item.num}.desc`}>{item.desc}</p>
+            </div>
+          </div>
+          <span class="codigos-row__arrow" aria-hidden="true">
+            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 22H35M35 22L23 10M35 22L23 34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+    <Image
+  class="codigos-row__img"
+  src={item.img}
+  alt=""
+  draggable="false"
+/>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .codigos {
+    background: #f5efe0;
+    padding: 120px 80px;
+    overflow: hidden;   }
+
+  .codigos__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .codigos__list { margin-top: 64px; }
+
+  .codigos-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1.5px solid rgba(197, 156, 64, 0.25);
+    padding: 40px 0;
+    overflow: visible;
+    transition: border-color 0.4s;
+  }
+  .codigos-row:first-child { border-top: 1.5px solid rgba(197, 156, 64, 0.25); }
+  .codigos-row:hover { border-color: rgba(197, 156, 64, 0.7); }
+
+  .codigos-row__left {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    min-width: 0;
+    flex: 1;
+    padding-right: 48px;
+  }
+  .codigos-row:hover .codigos-row__left { transform: translateX(-14px); }
+
+  .codigos-row__num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    flex-shrink: 0;
+    padding-top: 6px;
+  }
+
+  .codigos-row__title {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 5.5vw, 78px);
+    color: var(--dark);
+    letter-spacing: 1px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    overflow-wrap: break-word; 
+    word-break: break-word;
+  }
+
+  .codigos-row__desc {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(11, 11, 11, 0.5);
+    margin-top: 10px;
+    max-width: 540px;
+  }
+
+  .codigos-row__arrow {
+    flex-shrink: 0;
+    color: var(--gold);
+    opacity: 0;
+    transform: translateX(30%);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    z-index: 2;
+    line-height: 0;
+  }
+  .codigos-row:hover .codigos-row__arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .codigos-row__img {
+    position: absolute;
+    width: 300px;
+    height: 196px;
+    object-fit: cover;
+    border-radius: 14px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 10;
+    translate: -50% -50%;
+    opacity: 0;
+    scale: 0;
+    rotate: -12.5deg;
+    transition:
+      opacity  0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      scale    0.5s  cubic-bezier(0.34, 1.56, 0.64, 1),
+      rotate   0.5s  cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: scale, rotate, opacity;
+  }
+  .codigos-row__img.is-visible {
+    opacity: 1;
+    scale: 1;
+    rotate: 12.5deg;
+  }
+
+  @media (max-width: 900px) {
+    .codigos { padding: 80px 20px; } 
+    .codigos-row { padding: 28px 0; }
+    .codigos-row__left { gap: 14px; padding-right: 0; }
+    .codigos-row__arrow { display: none; }
+    .codigos-row__img { display: none; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.codigos-row').forEach((row) => {
+    const img = row.querySelector<HTMLImageElement>('.codigos-row__img');
+    if (!img) return;
+
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+    let rafId: number | null = null;
+
+    function lerp(a: number, b: number, t: number): number {
+      return a + (b - a) * t;
+    }
+
+    function tick(): void {
+      currentX = lerp(currentX, targetX, 0.09);
+      currentY = lerp(currentY, targetY, 0.09);
+      img.style.left = `${currentX}px`;
+      img.style.top  = `${currentY}px`;
+      rafId = requestAnimationFrame(tick);
+    }
+
+    row.addEventListener('mouseenter', (e: MouseEvent) => {
+      const rect = row.getBoundingClientRect();
+      currentX = targetX = e.clientX - rect.left;
+      currentY = targetY = e.clientY - rect.top;
+      img.style.left = `${currentX}px`;
+      img.style.top  = `${currentY}px`;
+      img.classList.add('is-visible');
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    });
+
+    row.addEventListener('mousemove', (e: MouseEvent) => {
+      const rect = row.getBoundingClientRect();
+      targetX = e.clientX - rect.left;
+      targetY = e.clientY - rect.top;
+    });
+
+    row.addEventListener('mouseleave', () => {
+      img.classList.remove('is-visible');
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+    });
+  });
+</script>

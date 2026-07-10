@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import aboutBg from '@/images/about-bg.jpg'; 
+import ScrollWrapper from './ScrollWrapper'; 
+---
+
+<section class="relative px-4 md:px-8 lg:px-20 py-6 md:py-20 lg:py-[120px] overflow-hidden" id="nosotros">
+  
+  <Image 
+    src={aboutBg} 
+    alt="Fondo de la sección nosotros" 
+    class="absolute inset-0 w-full h-full object-cover object-center opacity-45"
+  />
+
+  <div class="relative z-[2] grid grid-cols-1 gap-2 items-center lg:grid-cols-2 lg:gap-20">
+    <div class="anim from-l">
+      <p class="font-normal text-[clamp(20px,3vw,40px)] text-gold-alt tracking-[4px] sm:tracking-[6px] uppercase mb-0.5 md:mb-3" data-i18n="about.pre">SOMOS LAMB</p>
+      
+      <h2 class="font-bold text-[clamp(30px,5vw,64px)] text-dark uppercase leading-none">
+        <span class="block" data-i18n="about.title1">EXPERTOS EN</span>
+        <span class="block" data-i18n="about.title2">STORYTELLING</span>
+      </h2>
+    </div>
+    
+    <div class="relative z-[2] mt-1 md:mt-12">
+      <ScrollWrapper client:load />
+    </div>
+  </div>
+
+</section>

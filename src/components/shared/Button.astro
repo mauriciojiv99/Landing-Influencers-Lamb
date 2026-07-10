@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  variant?: 'gold' | 'outline';
+  label: string;
+  'data-i18n'?: string;
+}
+const { href, variant = 'gold', label, 'data-i18n': i18nKey } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  class:list={[
+    'inline-flex items-center gap-[10px] font-bold text-[13px] tracking-[1.6px] uppercase py-4 px-8 rounded-xl no-underline mt-10 w-fit transition-all duration-300 hover:-translate-y-1',
+    variant === 'gold'
+      ? 'bg-gold text-white hover:bg-[#a8852e]'
+      : 'bg-dark text-gold border-2 border-gold hover:bg-gold hover:text-white',
+  ]}
+  data-i18n={i18nKey}
+>
+  {label}
+</a>

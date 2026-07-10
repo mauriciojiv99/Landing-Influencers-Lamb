@@ -1,0 +1,44 @@
+---
+interface Props {
+  img: string;
+  alt?: string;
+  rotation: string;
+  delay?: string;
+}
+const { img, alt = 'Team', rotation, delay } = Astro.props;
+---
+
+<div class:list={['polaroid', 'anim', delay]} style={`--rotation: ${rotation}`}>
+  <div class="polaroid__inner">
+    <img src={img} alt={alt} />
+  </div>
+</div>
+
+<style>
+  .polaroid {
+    background: var(--gold);
+    border-radius: 7px;
+    padding: 10px 10px 44px;
+    cursor: pointer;
+    transform: rotate(var(--rotation));
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.08) !important;
+    z-index: 10;
+  }
+
+  .polaroid__inner {
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .polaroid img {
+    width: 210px;
+    height: 270px;
+    object-fit: cover;
+    display: block;
+  }
+</style>

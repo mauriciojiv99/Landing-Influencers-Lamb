@@ -1,0 +1,83 @@
+---
+import { Image } from 'astro:assets';
+import ModelForBrands from '@/images/cta-dark-bg.jpg';
+import TalentMonica from '@/images/talent-monica2.png';
+
+import Button from './shared/Button.astro';
+---
+
+<section class="grid grid-cols-1 lg:grid-cols-2 bg-cream-2 overflow-hidden">
+
+  <div 
+    class="relative bg-black px-20 py-[120px] min-h-[580px] flex flex-col justify-end max-lg:min-h-[420px] max-lg:px-8 max-lg:py-20 z-[1] lg:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)] lg:-mr-[5vw] lg:pr-[calc(20px+5vw)]"
+  >
+    <Image
+      src={ModelForBrands}
+      alt="Modelo para marcas"
+      class="absolute inset-y-0 -left-[120px] h-full w-auto max-w-none object-cover object-top hidden md:block z-0"
+    />
+
+    <div 
+      class="absolute inset-0 bg-gradient-to-r from-black/40 via-black/75 to-black hidden md:block z-[1]"
+    ></div>
+
+    <div class="relative z-[2] anim from-l lg:min-h-[320px] flex flex-col justify-start lg:max-w-[440px] lg:ml-auto w-full">
+      <p class="font-black font-beachday text-[clamp(32px,4vw,48px)] leading-none text-gold-bright" data-i18n="cta.dark.label">
+        PARA MARCAS
+      </p>
+
+      <p class="font-bold text-[20px] tracking-[0.5px] mt-4 text-cream/90" data-i18n="cta.dark.sub">
+        Estrategia. Creatividad. Impacto real.
+      </p>
+
+      <p class="font-normal text-[16px] leading-[1.7] mt-4 text-white/[0.72]" data-i18n="cta.dark.body">
+        Creamos campañas con propósito que conectan tu marca con las audiencias correctas y generan
+        resultados que se sienten y se miden.
+      </p>
+
+      <div class="mt-8 lg:mt-auto">
+        <Button
+          href="https://qrkit.co/marcas"
+          variant="gold"
+          label="Cotizar campaña →"
+          data-i18n="cta.dark.btn"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="relative bg-cream-2 px-20 py-[120px] min-h-[580px] flex flex-col justify-end max-lg:min-h-[420px] max-lg:px-8 max-lg:py-20 lg:pl-[5vw] overflow-hidden">
+
+    <Image
+      src={TalentMonica}
+      alt="Imagen de la influencer"
+      class="absolute hidden md:block bottom-0 right-0 h-[550px] w-auto object-contain pointer-events-none select-none z-0"
+    />
+
+    <div class="relative z-10 anim from-r d1 max-w-[360px] lg:min-h-[320px] flex flex-col justify-start">
+      <p class="font-black font-beachday text-[clamp(32px,4vw,48px)] leading-none text-dark" data-i18n="cta.light.label">
+        PARA CREADORES
+      </p>
+
+      <p class="font-bold text-[20px] tracking-[0.5px] mt-4 text-dark" data-i18n="cta.light.sub">
+        Representación. Oportunidades. Crecimiento.
+      </p>
+
+      <p class="font-normal text-[16px] leading-[1.7] mt-4 text-steel" data-i18n="cta.light.body">
+        Te representamos para que tu talento llegue más lejos con colaboraciones que suman a tu
+        visión y a tu comunidad.
+      </p>
+
+      <div class="mt-8 lg:mt-auto">
+        <Button
+          href="https://qrkit.co/influencers"
+          variant="outline"
+          label="ÚNETE A LAMB →"
+          data-i18n="cta.light.btn"
+        />
+      </div>
+    </div>
+
+  </div>
+
+</section>

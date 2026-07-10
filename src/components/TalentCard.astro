@@ -1,0 +1,105 @@
+---
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  img: string;
+  alt: string;
+  firstName: string;
+  lastName: string;
+  role: string;
+  stats: Stat[];
+  delay?: string;
+}
+
+const { img, alt, firstName, lastName, role, stats, delay } = Astro.props;
+---
+
+<div class:list={['t-card', 'anim', delay]}>
+  <img class="t-card__img" src={img} alt={alt} />
+  <div class="t-card__body">
+    <div class="display-font t-card__name">
+      {firstName}<br /><span class="hi">{lastName}</span>
+    </div>
+    <p class="t-card__role">{role}</p>
+    <div class="t-card__stats">
+      {stats.map((s) => (
+        <div class="t-card__stat">
+          <div class="stat-dot"></div>
+          <span><strong>{s.value}</strong> {s.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .t-card {
+    flex: 0 0 360px;
+    scroll-snap-align: start;
+    border-radius: 53px;
+    border: 2px solid var(--gold-alt);
+    overflow: hidden;
+    background: linear-gradient(155.36deg, rgba(0, 0, 0, 0.9) 4.7%, rgba(24, 24, 24, 0.9) 95.3%);
+    backdrop-filter: blur(1.1px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+  }
+
+  .t-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 32px 80px rgba(204, 154, 38, 0.25);
+  }
+
+  .t-card__img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .t-card__body { padding: 28px 32px 36px; }
+
+  .t-card__name {
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .t-card__name .hi { color: var(--gold-bright); }
+
+  .t-card__role {
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-top: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .t-card__stats {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .t-card__stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .t-card__stat strong { color: var(--gold-bright); font-weight: 600; }
+
+  .stat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold-alt);
+    flex-shrink: 0;
+  }
+</style>

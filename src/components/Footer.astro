@@ -1,0 +1,88 @@
+---
+import LinkedinIcon from "../svg/linkedin.svg";
+import InstagramIcon from "../svg/instagram.svg";
+import TikTokIcon from "../svg/tiktok.svg";
+import { ArrowUp } from 'lucide-react';
+import { Image } from "astro:assets";
+import  Logo from "@/images/logo.png"
+---
+
+<footer id="contacto" class="bg-dark-footer border-t border-gold/5 px-8 pt-20 pb-12 lg:px-20">
+<div class="flex flex-col lg:flex-row items-center  justify-between px-20">
+  <nav class="footer-nav anim flex flex-col mb-20 gap-2">
+    <a href="#nosotros" data-i18n="footer.nav.nosotros"
+      class="font-black text-[clamp(32px,5vw,60px)] leading-[0.8] text-cream tracking-[-3px] no-underline transition-colors duration-300 hover:text-gold">
+      NOSOTROS
+    </a>
+    <a href="#ecosistema" data-i18n="footer.nav.ecosistema"
+      class="font-black text-[clamp(32px,5vw,60px)] leading-[0.8] text-cream tracking-[-3px] no-underline transition-colors duration-300 hover:text-gold">
+      ECOSISTEMA
+    </a>
+    <a href="#talentos" data-i18n="footer.nav.talentos"
+      class="font-black text-[clamp(32px,5vw,60px)] leading-[0.8] text-cream tracking-[-3px] no-underline transition-colors duration-300 hover:text-gold">
+      TALENTOS
+    </a>
+  </nav>
+
+  <div class="flex flex-col md:flex-row gap-5">
+    <div class="anim text-center md:text-right">
+      <p class="font-medium text-[12px] text-gold tracking-[2px] uppercase mb-[14px]" data-i18n="footer.contact">
+        Hablemos
+      </p>
+      <a href="mailto:brandomd@agencylamb.com"
+        class="block font-light text-[clamp(14px,1.8vw,22px)] text-white no-underline mb-1 transition-colors duration-300 hover:text-gold">
+        brandomd@agencylamb.com
+      </a>
+      <a href="mailto:mara@agencylamb.com"
+        class="block font-light text-[clamp(14px,1.8vw,22px)] text-white no-underline mb-1 transition-colors duration-300 hover:text-gold">
+        mara@agencylamb.com
+      </a>
+      <p class="text-[13px] text-white/40 mt-2" data-i18n="footer.city">Ciudad de México</p>
+    </div>
+  
+ <div class="anim text-center order-first lg:order-none shrink-0">
+  <Image src={Logo} alt="Agency Lamb logo"   class="h-[180px] w-auto object-contain"/>
+
+</div>
+
+  </div>
+
+
+
+</div>
+
+  <div class="w-full h-px bg-white/10 my-12">
+  </div>
+
+  <div class="flex flex-col-reverse md:flex-row px-20 justify-between">
+  <p class="font-bold text-[11px] text-white/35 tracking-[1.2px] uppercase text-center mb-6">
+    AGENCY LAMB &copy; 2026, All Rights Reserved
+  </p>
+  <div class="flex gap-2">
+    <a href="#" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="LinkedIn">
+      <span class="w-[22px] h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+        <LinkedinIcon />
+      </span>
+    </a>
+
+    <a href="#" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="TikTok">
+      <span class="w-[22px] h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+        <TikTokIcon />
+      </span>
+    </a>
+
+    <a href="#" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="Instagram">
+      <span class="w-[22px] h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+        <InstagramIcon />
+      </span>
+    </a>
+    <a href="#home-section">
+<span class="flex items-center justify-center w-12 h-12 rounded-full bg-[#C59C40] text-black">
+  <ArrowUp size={24} strokeWidth={2.5} />
+</span>
+    </a>
+
+  </div>
+
+  </div>
+</footer>

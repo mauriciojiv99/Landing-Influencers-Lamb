@@ -1,0 +1,15 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+  'data-i18n'?: string;
+}
+const { text, class: className, 'data-i18n': i18nKey } = Astro.props;
+---
+
+<p
+  class:list={['font-normal text-[12px] sm:text-[13px] tracking-[3px] sm:tracking-[5px] md:tracking-[7.2px] uppercase text-gold-alt', className]}
+  data-i18n={i18nKey}
+>
+  {text}
+</p>

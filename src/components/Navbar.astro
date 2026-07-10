@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets';
+import LogoAgencyLamb from '@/images/logo.png'
+---
+
+
+<header class="fixed top-0 left-0 w-full z-[1000] pointer-events-none lg:top-5 lg:left-1/2 lg:-translate-x-1/2 lg:w-[calc(100%-64px)] max-w-content">
+  
+  <div
+    class="flex items-center justify-between gap-4 bg-dark/90 lg:bg-dark/55 backdrop-blur-[20px] border-b lg:border border-gold/20 rounded-none lg:rounded-full py-4 px-5 lg:py-[10px] lg:pl-6 lg:pr-[10px] pointer-events-auto transition-all duration-[400ms] relative"
+    id="navbarPill"
+  >
+    <a href="#home-section" class="flex items-center gap-[10px] no-underline shrink-0">
+      <Image
+        src={LogoAgencyLamb}
+        alt="Agency Lamb logo"
+        height={64}
+        class="h-8 w-auto block"
+      />
+      <span class="hidden sm:inline-block font-sans font-black text-[15px] tracking-[2px] text-gold uppercase whitespace-nowrap">
+        Agency Lamb
+      </span>
+    </a>
+
+    <nav class="hidden lg:block">
+      <ul class="flex items-center gap-9 list-none m-0 p-0">
+        <li>
+          <a href="#nosotros" data-i18n="nav.nosotros" class="font-sans font-semibold text-[12px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold whitespace-nowrap">
+            Nosotros
+          </a>
+        </li>
+        <li>
+          <a href="#ecosistema" data-i18n="nav.ecosistema" class="font-sans font-semibold text-[12px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold whitespace-nowrap">
+            Ecosistema
+          </a>
+        </li>
+        <li>
+          <a href="#talentos" data-i18n="nav.talentos" class="font-sans font-semibold text-[12px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold whitespace-nowrap">
+            Talentos
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-3 lg:gap-3">
+      <a
+        href="https://qrkit.co/marcas"
+        target="_blank"
+        data-i18n="nav.cta"
+        class="inline-flex items-center gap-2 font-sans font-bold text-[10px] tracking-[1.5px] uppercase text-gold no-underline border-[1.5px] border-gold rounded-xl py-[9px] px-4 shrink-0 whitespace-nowrap transition-all duration-[250ms] hover:bg-gold hover:text-white lg:text-[11px] lg:py-[11px] lg:px-[22px]"
+      >
+        Cotizar campaña &rarr;
+      </a>
+
+      <button
+        id="menu-toggle"
+        aria-label="Alternar menú de navegación"
+        class="relative flex flex-col justify-center items-center w-8 h-8 gap-[5px] lg:hidden cursor-pointer p-1"
+      >
+        <span class="w-6 h-[2px] bg-gold rounded-full transition-transform duration-300 origin-center"></span>
+        <span class="w-6 h-[2px] bg-gold rounded-full transition-opacity duration-300"></span>
+        <span class="w-6 h-[2px] bg-gold rounded-full transition-transform duration-300 origin-center"></span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="menu-movil"
+    class="pointer-events-auto absolute top-full right-0 w-full sm:w-[250px] bg-black/95 backdrop-blur-[15px] border-b border-l border-gold/20 sm:rounded-bl-2xl p-6 flex flex-col items-end opacity-0 invisible transition-all duration-300 lg:hidden shadow-2xl"
+  >
+    <nav class="w-full">
+      <ul class="flex flex-col items-end gap-6 list-none m-0 p-0 w-full">
+        <li>
+          <a href="#nosotros" data-i18n="nav.nosotros" class="enlace-movil block font-sans font-semibold text-[14px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold">
+            Nosotros
+          </a>
+        </li>
+        <li>
+          <a href="#ecosistema" data-i18n="nav.ecosistema" class="enlace-movil block font-sans font-semibold text-[14px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold">
+            Ecosistema
+          </a>
+        </li>
+        <li>
+          <a href="#talentos" data-i18n="nav.talentos" class="enlace-movil block font-sans font-semibold text-[14px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold">
+            Talentos
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  #menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  const btnToggle = document.getElementById("menu-toggle");
+  const menuMovil = document.getElementById("menu-movil");
+  const enlacesMoviles = document.querySelectorAll(".enlace-movil");
+
+  const toggleMenu = () => {
+    if (!menuMovil || !btnToggle) return;
+    
+    menuMovil.classList.toggle("opacity-0");
+    menuMovil.classList.toggle("invisible");
+    menuMovil.classList.toggle("opacity-100");
+    menuMovil.classList.toggle("visible");
+
+    btnToggle.classList.toggle("is-active");
+  };
+
+  btnToggle?.addEventListener("click", toggleMenu);
+
+  enlacesMoviles.forEach((enlace) => {
+    enlace.addEventListener("click", toggleMenu);
+  });
+</script>

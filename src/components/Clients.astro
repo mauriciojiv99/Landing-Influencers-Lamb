@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+
+import LogoAlpura from "../../public/images/brands-logos/logo-alpura.png";
+import LogoBacardi from "../../public/images/brands-logos/logo-bacardi.png";
+import LogoKFC from "../../public/images/brands-logos/logo-kfc.png";
+import LogoLacoste from "../../public/images/brands-logos/logo-lacoste.png";
+import LogoWalmart from "../../public/images/brands-logos/logo-walmart.png";
+import LogoLala from "../../public/images/brands-logos/logo-lala.png"; 
+
+const brands = [
+  { name: 'Walmart', src: LogoWalmart },
+  { name: 'KFC', src: LogoKFC },
+  { name: 'Lacoste', src: LogoLacoste },
+  { name: 'Bacardí', src: LogoBacardi },
+  { name: 'Alpura', src: LogoAlpura },
+  { name: 'Laia', src: LogoLala },
+];
+---
+
+<section class="bg-white py-6 md:py-20">
+  
+  <div class="flex justify-center px-2 mb-4 md:mb-14 max-lg:px-8">
+    <h2 class="text-4xl leading-[1.2] anim text-center">
+      <span class="font-normal text-dark" data-i18n="clients.h1">CAMPAÑAS QUE CONECTAN</span><br />
+      <span class="font-semibold text-gold-alt" data-i18n="clients.h2">RESULTADOS QUE HABLAN</span>
+    </h2>
+  </div>
+
+  <div class="flex flex-col">
+    <div class="group overflow-hidden py-[10px]">
+      <div class="flex items-center gap-6 md:gap-[72px] w-max whitespace-nowrap px-2 md:px-9 animate-marquee-fwd group-hover:[animation-play-state:paused] max-lg:gap-12">
+        {brands.map((b) => (
+          <div class="flex items-center justify-center w-[90px] h-[35px] md:w-[120px] md:h-[50px] opacity-[0.82] transition-opacity duration-200 hover:opacity-100">
+            <Image src={b.src} alt={`Logo de ${b.name}`} class="max-w-full max-h-full object-contain" />
+          </div>
+        ))}
+        {brands.map((b) => (
+          <div class="flex items-center justify-center w-[90px] h-[35px] md:w-[120px] md:h-[50px] opacity-[0.82] transition-opacity duration-200 hover:opacity-100" aria-hidden="true">
+            <Image src={b.src} alt={`Logo de ${b.name}`} class="max-w-full max-h-full object-contain" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

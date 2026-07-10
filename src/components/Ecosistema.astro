@@ -1,0 +1,49 @@
+---
+import SectionLabel from './shared/SectionLabel.astro';
+import EcoCard from './EcoCard.astro';
+
+const cards = [
+  {
+    num: '01',
+    head: 'EXPERIENCIA 360° Y PR.',
+    body: 'Más allá del posteo. Desde kits de PR hasta eventos físicos, blindamos tu campaña de principio a fin.',
+    theme: 'dark' as const,
+    full: false,
+    stickyTop: 80,
+    stickyZ: 1,
+  },
+  {
+    num: '02',
+    head: 'INGENIERÍA DE AUDIENCIAS.',
+    body: 'Conectamos. Amplificamos. Validamos. Generamos tendencia. Perfiles seleccionados con estrategia, no por azar.',
+    theme: 'light' as const,
+    full: true,
+    stickyTop: 90,
+    stickyZ: 2,
+    delay: 'd1',
+  },
+  {
+    num: '03',
+    head: 'AGILIDAD EN EL ADN.',
+    body: 'Presentamos talento y cerramos negociaciones. Sin letras chiquitas.',
+    theme: 'dark' as const,
+    full: true,
+    stickyTop: 100,
+    stickyZ: 3,
+    delay: 'd2',
+  },
+];
+---
+
+<section class="eco-wrap bg-white px-40 py-[120px] max-lg:px-8 max-lg:py-20" id="ecosistema">
+  <div class="mb-[72px] anim">
+    <SectionLabel text="Nuestros servicios" data-i18n="eco.label" />
+<h2 class="text-4xl text-dark mt-4 text-center flex flex-col md:flex-row justify-center items-center gap-x-3">
+  <span data-i18n="eco.title.pre">El</span>
+  <span class="text-yellow-600" data-i18n="eco.title.span">ECOSISTEMA</span>
+  <span data-i18n="eco.title.post">LAMB</span>
+</h2>
+  </div>
+
+  {cards.map((card) => <EcoCard {...card} i18nHead={`eco.${card.num}.head`} i18nBody={`eco.${card.num}.body`} />)}
+</section>

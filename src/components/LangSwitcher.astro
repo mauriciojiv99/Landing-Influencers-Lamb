@@ -1,0 +1,81 @@
+---
+---
+
+<div 
+  class="fixed bottom-8 left-8 z-[1000] inline-flex items-center bg-dark/[0.88] backdrop-blur-[16px] border border-gold/[0.22] rounded-full p-1 max-[600px]:bottom-5 max-[600px]:left-5"
+  id="langSw"
+  role="group"
+  aria-label="Language switcher"
+>
+  <div
+    class="absolute top-1 left-1 h-[calc(100%-8px)] bg-gold rounded-full pointer-events-none transition-[left,width] duration-[320ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+    id="langSlider"
+  ></div>
+  <button
+    class="lang-sw__btn relative z-[1] inline-flex items-center gap-[5px] py-[7px] px-[13px] border-0 bg-transparent rounded-full font-sans font-bold text-[11px] tracking-[1.4px] uppercase text-white/45 cursor-pointer whitespace-nowrap transition-colors duration-[280ms] [tap-highlight-color:transparent] is-active max-[600px]:px-[10px]"
+    data-lang="es"
+    aria-pressed="true"
+  >
+    <span class="text-[14px] leading-none max-[600px]:text-[16px]">🇲🇽</span>
+    <span class="max-[600px]:hidden">ES</span>
+  </button>
+  <button
+    class="lang-sw__btn relative z-[1] inline-flex items-center gap-[5px] py-[7px] px-[13px] border-0 bg-transparent rounded-full font-sans font-bold text-[11px] tracking-[1.4px] uppercase text-white/45 cursor-pointer whitespace-nowrap transition-colors duration-[280ms] [tap-highlight-color:transparent] max-[600px]:px-[10px]"
+    data-lang="en"
+    aria-pressed="false"
+  >
+    <span class="text-[14px] leading-none max-[600px]:text-[16px]">🇺🇸</span>
+    <span class="max-[600px]:hidden">EN</span>
+  </button>
+</div>
+
+<style>
+  .lang-sw__btn.is-active { color: #fff; }
+</style>
+
+<script>
+  import { applyTranslations } from '../scripts/translations.js';
+
+  const sw      = document.getElementById('langSw')      as HTMLElement;
+  const slider  = document.getElementById('langSlider')  as HTMLElement;
+  const buttons = sw.querySelectorAll<HTMLButtonElement>('.lang-sw__btn');
+
+  function snapSlider(btn: HTMLButtonElement): void {
+    slider.style.left  = btn.offsetLeft + 'px';
+    slider.style.width = btn.offsetWidth + 'px';
+  }
+
+  function activateBtn(btn: HTMLButtonElement): void {
+    buttons.forEach((b) => {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-pressed', 'true');
+    snapSlider(btn);
+  }
+
+  const savedLang = localStorage.getItem('lamb-lang') || 'es';
+  const initBtn = sw.querySelector<HTMLButtonElement>(`[data-lang="${savedLang}"]`)
+                  ?? sw.querySelector<HTMLButtonElement>('.lang-sw__btn')!;
+
+  slider.style.transition = 'none';
+  activateBtn(initBtn);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => { slider.style.transition = ''; });
+  });
+
+  if (savedLang !== 'es') {
+    applyTranslations(savedLang as 'es' | 'en');
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('is-active')) return;
+      activateBtn(btn);
+      const lang = btn.getAttribute('data-lang') as 'es' | 'en';
+      applyTranslations(lang);
+      localStorage.setItem('lamb-lang', lang);
+    });
+  });
+</script>

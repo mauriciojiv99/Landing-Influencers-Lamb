@@ -1,0 +1,212 @@
+@import "@fontsource-variable/geist";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Beachday";
+  src: url("/fonts/beachday.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design tokens ──────────────────────────────────────────── */
+:root {
+  --gold: #c59c40;
+  --gold-alt: #cc9a26;
+  --gold-bright: #f7cb5c;
+  --dark: #0b0b0b;
+  --dark-card: #151515;
+  --footer-bg: #111;
+  --cream: #f3ede1;
+  --cream-2: #f3ede0;
+  --steel: #4a5565;
+  --grey: #858484;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: white;
+  overflow-x: hidden;
+}
+
+/* ─── Keyframes ──────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes scaleReveal {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ─── Scroll-reveal animation utility ───────────────────────── */
+.anim {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim.from-l {
+  transform: translateX(-70px);
+}
+
+.anim.from-r {
+  transform: translateX(70px);
+}
+
+.anim.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.d1 {
+  transition-delay: 0.1s;
+}
+
+.d2 {
+  transition-delay: 0.2s;
+}
+
+.d3 {
+  transition-delay: 0.3s;
+}
+
+.d4 {
+  transition-delay: 0.4s;
+}
+
+.d5 {
+  transition-delay: 0.55s;
+}
+
+.display-font {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+
+/* ─── JS-toggled state classes ───────────────────────────────── */
+.navbar__pill.scrolled {
+  background: rgba(11, 11, 11, 0.92);
+  border-color: rgba(197, 156, 64, 0.28);
+}
+/* ─── Utility helpers ────────────────────────────────────────── */
+.fading {
+  opacity: 0;
+}
+
+.drag-card:active,
+.drag-card.is-dragging {
+  cursor: grabbing;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+}
+
+/* ─── TV2 (Talentos) dynamically injected elements ───────────── */
+.tv2-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(197, 156, 64, 0.12);
+}
+.tv2-stat__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 156, 64, 0.35);
+  background: rgba(197, 156, 64, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 8px;
+  color: #c59c40;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.tv2-stat__val {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #c59c40;
+  display: block;
+  line-height: 1;
+}
+.tv2-stat__plat {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.38);
+  display: block;
+  margin-top: 2px;
+}
+.tv2__tag {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #c59c40;
+  border: 1px solid rgba(197, 156, 64, 0.35);
+  padding: 5px 13px;
+  border-radius: 9999px;
+}

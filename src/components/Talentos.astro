@@ -1,0 +1,245 @@
+---
+import InfluencerCard from "./InfluencerCard.astro"
+import { Image } from 'astro:assets';
+
+import Talent1 from '@/images/talents-section/talent-1.png'
+import Talent2 from '@/images/talents-section/talent-2.png'
+import Talent3 from '@/images/talents-section/talent-3.png'
+import Talent4 from '@/images/talents-section/talent-4.png'
+import Talent5 from '@/images/talents-section/talent-5.png'
+
+const talents = [
+  {
+    name: 'MÓNICA',
+    lastname: 'MARQUET',
+    textContent: 'Mónica ha cautivado a más de 250,000 seguidores en Instagram con su estilo gótico y enfoque en el modelaje alternativo',
+    tags: ['ESTILO DE VIDA', 'MODA ALTERNATIVA'],
+    image: Talent1,
+    alt: 'Imagen de influencer Mónica Marquet',
+    social: {
+      instagram: { 
+        user: 'monica.marquet',
+        followers: '110.7 K'
+      },
+      tiktok:{
+        user: 'monica.marquet',
+        followers:'113 k'
+      }
+    }
+  },
+  {
+    name: 'ALEXA',
+    lastname: 'ARCHU',
+    textContent: 'Alexa Archu es una joven creativa mexicana que ha conquistado redes sociales con su carisma, talento para la danza y contenido lleno de humor y creatividad.',
+    tags: ['ENTRETENIMIENTO', 'CULTURA'],
+    image: Talent2,
+    alt: 'Imagen de influencer Alexa Archu',
+    social: {
+      instagram: { 
+        user: 'alexaarchu',
+        followers: '193 K'
+      },
+      tiktok:{
+        user: 'alexaarchu',
+        followers:'2.2 M'
+      }
+    }
+  },
+  {
+    name: 'DAN',
+    lastname: 'PARRA',
+    textContent: 'Dan Parra, destaca por su autenticidad. Su participación en realities y concursos de baile la ha llevado a conectar con una comunidad cercana e inspiradora.',
+    tags: ['MÚSICA', 'CULTURA URBANA'],
+    image: Talent3,
+    alt: 'Imagen de influencer Dan Parra',
+    social: {
+      instagram: { 
+        user: 'dannparra',
+        followers: '107 K'
+      },
+      tiktok:{
+        user: 'dannparra',
+        followers:'147.6 K'
+      }
+    }
+  },
+  {
+    name: 'MILO',
+    lastname: 'HARF',
+    textContent: 'Miloh, cantautora mexicana y creadora de contenido, comparte música emotiva y auténtica. Firmada con BAM Music, conecta a una comunidad joven y apasionada.',
+    tags: ['MÚSICA', 'CULTURA URBANA'],
+    image: Talent4,
+    alt: 'Imagen de influencer Milo Harf',
+    social: {
+      instagram: { 
+        user: 'miloharf',
+        followers: '45.1 K'
+      },
+      tiktok:{
+        user: 'miloh_____',
+        followers:'346.5 K'
+      }
+    }
+  },
+  {
+    name: 'ANDREA',
+    lastname: 'BENTLEY',
+    textContent: 'Influencer de estilo de vida, moda, viajes, comparte contenido, y conecta con su comunidad a través de experiencias personales y momentos significativos.',
+    tags: ['MÚSICA', 'CULTURA URBANA'],
+    image: Talent5,
+    alt: 'Imagen de influencer Andrea Bentley',
+    social: {
+      instagram: { 
+        user: 'andreabentley_',
+        followers: '134 K'
+      },
+      tiktok:{
+        user: 'andreabentley',
+        followers:'373.1 K'
+      }
+    }
+  }
+];
+---
+
+<style>
+  .fading-photo { opacity: 0 !important; }
+</style>
+
+<section
+  class="grid grid-cols-1 lg:grid-cols-2 min-h-auto lg:min-h-[720px]"
+  id="talentos"
+  style="background-image: url('/images/backgrounds/background-talents-section.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+>
+
+  <div class="relative overflow-hidden p-4 py-10 md:p-8 md:py-16 lg:p-[80px_72px] flex items-center">
+    <div class="relative z-[2] w-full anim">
+      <h2
+        class="font-beachday text-[clamp(48px,11vw,120px)] text-white leading-[0.88] tracking-[3px] m-0"
+        data-i18n="talentos.title"
+      >TALENTOS</h2>
+      
+      <p class="relative font-normal leading-none m-0 mt-1 lg:mt-3 flex flex-col lg:block">
+        <span class="static lg:absolute lg:top-4 lg:left-0 text-white text-3xl lg:text-5xl" data-i18n="talentos.sub1_part1">que</span> 
+        <span class="text-gold text-5xl lg:text-8xl pl-0 lg:pl-24 mt-0.5 lg:mt-0" data-i18n="talentos.sub1_part2">Inspiran</span>
+      </p>
+
+      <p class="text-lg lg:text-xl italic text-white tracking-[2px] mt-[10px]" data-i18n="talentos.sub2">
+        AUDIENCIAS QUE <span class="text-gold">CONECTAN</span>
+      </p>
+      
+      <p class="text-[14px] lg:text-[15px] text-white/55 leading-[1.7] max-w-[400px] mt-2 lg:mt-6" data-i18n="talentos.body">
+        Creadores auténticos con comunidades reales. No es sobre seguidores — es sobre la conexión genuina con audiencias que confían en su voz.
+      </p>
+
+      <div class="mt-4 lg:mt-6 min-h-[auto] lg:min-h-[32px]">
+        {talents.map((talent, index) => (
+          <div 
+            class={`js-talent-tags flex flex-wrap gap-2 transition-all duration-300 ${index === 0 ? 'flex' : 'hidden'}`} 
+            data-tags-idx={index}
+          >
+            {talent.tags.map((tag) => (
+              <span class="tv2__tag px-3 py-1 bg-white/10 text-white rounded-full text-[10px] lg:text-xs font-semibold uppercase tracking-wider">{tag}</span>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div class="flex flex-wrap gap-[10px] lg:gap-[14px] mt-4 lg:mt-8 w-full max-w-md">
+        <a href="https://qrkit.co/marcas" target="_blank" class="flex flex-1 justify-center items-center text-center font-sans font-bold text-[11px] lg:text-[12px] tracking-[1.5px] uppercase py-[12px] lg:py-[14px] rounded-xl no-underline transition-all duration-300 bg-gold text-white hover:bg-[#a8852e] hover:-translate-y-[3px]" data-i18n="talentos.cta1">COTIZAR CAMPAÑA</a>
+        <a href="https://qrkit.co/influencers" target="_blank" class="flex flex-1 justify-center items-center text-center font-sans font-bold text-[11px] lg:text-[12px] tracking-[1.5px] uppercase py-[12px] lg:py-[14px] rounded-xl no-underline transition-all duration-300 bg-transparent text-gold border border-gold/60 hover:bg-gold hover:text-white hover:border-gold hover:-translate-y-[3px]" data-i18n="talentos.cta2">ÚNETE A LAMB</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative overflow-hidden min-h-[540px] sm:min-h-[580px] lg:min-h-[720px]">
+    
+    <Image 
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full h-[490px] sm:h-[580px] lg:h-[660px] object-contain object-bottom transition-opacity duration-[380ms] z-[1]"
+      src={talents[0].image}       
+      alt={`${talents[0].name} ${talents[0].lastname}`}
+      id="tv2Photo"
+      loading="eager"
+      data-all-photos={JSON.stringify(talents.map(t => ({ src: t.image.src, alt: `${t.name} ${t.lastname}` })))}
+    />
+
+    <div 
+      class="absolute bottom-4 right-4 lg:bottom-8 lg:right-8 z-[3] flex flex-col items-end gap-3 lg:gap-4 transition-opacity duration-[380ms]"
+      id="tv2CardGroup"
+    >
+      <div class="flex items-center gap-3 lg:gap-4 bg-dark/[0.88] backdrop-blur-[16px] border border-gold/[0.18] py-1.5 px-3 lg:py-2 lg:px-4 rounded-xl">
+        <button class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border border-gold/35 bg-transparent text-gold flex items-center justify-center cursor-pointer transition-all duration-[250ms] hover:bg-gold hover:text-white hover:border-gold" id="tv2Prev" aria-label="Talento anterior">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="font-sans font-semibold text-[11px] lg:text-[12px] text-white/60 tracking-[1px] select-none">
+          <span id="tv2Curr">1</span>&thinsp;/&thinsp;<span id="tv2Total">{talents.length}</span>
+        </span>
+        <button class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border border-gold/35 bg-transparent text-gold flex items-center justify-center cursor-pointer transition-all duration-[250ms] hover:bg-gold hover:text-white hover:border-gold" id="tv2Next" aria-label="Siguiente talento">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div id="tv2CardContainer">
+        {talents.map((talent, index) => (
+          <div class={`js-talent-card transition-all duration-300 ${index === 0 ? 'block opacity-100 scale-100' : 'hidden opacity-0 scale-95'}`} data-card-idx={index}>
+            <InfluencerCard name={talent.name} lastname={talent.lastname} textContent={talent.textContent} social={talent.social} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  let current = 0;
+  const photoEl      = document.getElementById('tv2Photo') as HTMLImageElement;
+  const currEl       = document.getElementById('tv2Curr')!;
+  const totalEl      = document.getElementById('tv2Total')!;
+  const cards        = document.querySelectorAll('.js-talent-card');
+  const tagsGroups   = document.querySelectorAll('.js-talent-tags');
+  const totalTalents = cards.length;
+
+  const clientTalents = JSON.parse(photoEl?.getAttribute('data-all-photos') || '[]');
+
+  totalEl.textContent = String(totalTalents);
+
+  function update(idx: number): void {
+    if (photoEl && clientTalents[idx]) {
+      photoEl.src = clientTalents[idx].src;
+      photoEl.alt = clientTalents[idx].alt;
+    }
+    currEl.textContent = String(idx + 1);
+    cards.forEach((card) => {
+      const cardIdx = parseInt(card.getAttribute('data-card-idx') || '0', 10);
+      if (cardIdx === idx) {
+        card.classList.remove('hidden');
+        setTimeout(() => { card.classList.add('block', 'opacity-100', 'scale-100'); card.classList.remove('opacity-0', 'scale-95'); }, 10);
+      } else {
+        card.classList.add('hidden', 'opacity-0', 'scale-95');
+        card.classList.remove('block', 'opacity-100', 'scale-100');
+      }
+    });
+    tagsGroups.forEach((group) => {
+      const tagsIdx = parseInt(group.getAttribute('data-tags-idx') || '0', 10);
+      if (tagsIdx === idx) { group.classList.remove('hidden'); group.classList.add('flex'); } 
+      else { group.classList.add('hidden'); group.classList.remove('flex'); }
+    });
+  }
+
+  function navigate(delta: number): void {
+    const cardGroup = document.getElementById('tv2CardGroup')!;
+    photoEl.classList.add('fading-photo');
+    cardGroup.classList.add('fading');
+    setTimeout(() => {
+      current = (current + delta + totalTalents) % totalTalents;
+      update(current);
+      photoEl.classList.remove('fading-photo');
+      cardGroup.classList.remove('fading');
+    }, 380);
+  }
+
+  update(0);
+  document.getElementById('tv2Prev')?.addEventListener('click', () => navigate(-1));
+  document.getElementById('tv2Next')?.addEventListener('click', () => navigate(1));
+</script>

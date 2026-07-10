@@ -1,0 +1,70 @@
+---
+import {
+  Card,
+  CardContent,
+} from "@/components/ui/card";
+import { Image } from 'astro:assets';
+
+interface Props {
+  img: ImageMetadata;
+  alt: string;
+  rotate: string;
+  top: string;
+  left: string;
+  widthBG?: string;
+  z: number;
+}
+
+const { img,alt, rotate, top, left, z } = Astro.props;
+---
+
+<div
+  class="drag-card absolute cursor-grab touch-none select-none transition-shadow duration-[250ms] max-lg:static max-lg:inline-block max-lg:w-[150px] max-lg:m-3 max-lg:cursor-default"
+  style={`
+    top: ${top};
+    left: ${left};
+    width: 235px;
+    z-index: ${z};
+    transform: rotate(${rotate});
+  `}
+>
+
+  <!-- FONDO DORADO -->
+  <div
+    class="absolute rounded-md"
+    style={`
+      width: 199px;
+      height: 293px;
+
+      background: #CC9A26;
+
+      top: 6px;
+      left: 6px;
+
+      transform: rotate(10deg);
+      transform-origin: center;
+
+      z-index: 0;
+    `}
+  ></div>
+
+  <Card className="relative z-10 p-[10px] bg-white border border-border !rounded-none shattered-fix">
+    <CardContent className="p-0">
+    <Image
+        src={img}
+        alt={alt} 
+        draggable="false"
+        class="block w-full aspect-[210/270] object-cover rounded-none pointer-events-none"
+      />
+    </CardContent>
+  </Card>
+
+</div>
+
+<style>
+.shattered-fix {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
+}
+</style>

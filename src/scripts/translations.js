@@ -1,0 +1,214 @@
+/** @type {Record<string, Record<string, string>>} */
+export const translations = {
+  es: {
+    // Navbar
+    "nav.nosotros": "Nosotros",
+    "nav.ecosistema": "Ecosistema",
+    "nav.talentos": "Talentos",
+    "nav.cta": "Cotizar campaña →",
+    // Hero
+    "hero.pre": "CONECTAMOS MARCAS CON",
+    "hero.title1": "AUDIENCIAS",
+    "hero.title2": "REALES",
+    "hero.sub":
+      "Influencer Marketing con propósito, estrategia y comunidad auténtica en México y LATAM.",
+    "hero.cta": "Cotizar campaña →",
+    // About
+    "about.pre": "SOMOS LAMB",
+    "about.title1": "EXPERTOS EN",
+    "about.title2": "STORYTELLING",
+    "about.body1":
+      "En Agency LAMB creemos que el verdadero impacto no nace de las métricas vacías, sino",
+    "about.body2":
+      "de las historias, la autenticidad y la visión detrás de cada talento.",
+    "about.right":
+      "Con estrategia, firmeza y cercanía, conectamos marcas con talento auténtico para construir impacto real y reputación duradera.",
+    // Clients
+    "clients.h1": "CAMPAÑAS QUE CONECTAN",
+    "clients.h2": "RESULTADOS QUE HABLAN",
+    // Ecosistema
+    "eco.label": "Nuestros servicios",
+    "eco.title.pre": "El",
+    "eco.title.span": "ECOSISTEMA",
+    "eco.title.post": "LAMB",
+
+    "eco.01.head": "EXPERIENCIA 360° Y PR.",
+    "eco.01.body":
+      "Más allá del posteo. Desde kits de PR hasta eventos físicos, blindamos tu campaña de principio a fin.",
+    "eco.02.head": "INGENIERÍA DE AUDIENCIAS.",
+    "eco.02.body":
+      "Conectamos. Amplificamos. Validamos. Generamos tendencia. Perfiles seleccionados con estrategia, no por azar.",
+    "eco.03.head": "AGILIDAD EN EL ADN.",
+    "eco.03.body":
+      "Presentamos talento y cerramos negociaciones. Sin letras chiquitas.",
+    // Codigos
+    "codigos.label": "Nuestros principios",
+    "codigos.01.head": "LAS PERSONAS ANTES QUE LOS PERFILES",
+    "codigos.02.head": "CREATIVIDAD QUE CONECTA",
+    "codigos.03.head": "LA CULTURA MUEVE LA INFLUENCIA",
+    "codigos.04.head": "CONSTRUIMOS JUNTOS",
+    "codigos.05.head": "LOS DETALLES CREAN LEGADO",
+    "codigos.01.desc":
+      "Antes que números o métricas, vemos personas, historias y propósito. Creemos en desarrollar talentos desde su autenticidad.",
+    "codigos.02.desc":
+      "No creemos en crear por crear. Cada idea, campaña o estrategia debe generar una conexión real entre el talento, las marcas y la audiencia.",
+    "codigos.03.desc":
+      "Entendemos internet, tendencias y conversación cultural. Sabemos que la relevancia nace cuando un talento logra conectar genuinamente con su generación.",
+    "codigos.04.desc":
+      "Más que managers, somos aliados creativos y estratégicos. Caminamos junto a nuestros talentos en cada etapa de su crecimiento.",
+    "codigos.05.desc":
+      "Creemos que las grandes carreras se construyen cuidando cada detalle: desde una negociación hasta la manera en la que una historia es contada.",
+    // Equipo
+    "equipo.title1": "EL EQUIPO",
+    "equipo.title2": "DETRÁS DEL IMPACTO",
+    // Stats
+    "stats.01.label": "Campañas",
+    "stats.02.label": "Años redefiniendo el Management",
+    "stats.03.label": "Creadores top en exclusiva",
+    "stats.no": "NO",
+    "stats.p1": "PERSEGUIMOS",
+    "stats.p2": "TENDENCIAS.",
+    "stats.p3": "Cultivamos",
+    "stats.p4": "COMUNIDAD",
+    // Talentos
+    "talentos.title": "TALENTOS",
+    "talentos.sub1_part1": "que",
+    "talentos.sub1_part2": "Inspiran",
+    "talentos.sub2": "AUDIENCIAS QUE CONECTAN.",
+    "talentos.body":
+      "Creadores auténticos con comunidades reales. No es sobre seguidores — es sobre la conexión genuina con audiencias que confían en su voz.",
+    "talentos.cta1": "COTIZAR CAMPAÑA",
+    "talentos.cta2": "ÚNETE A LAMB",
+    // CtaSplit
+    "cta.dark.label": "PARA MARCAS",
+    "cta.dark.sub": "Estrategia. Creatividad. Impacto real.",
+    "cta.dark.body":
+      "Creamos campañas con propósito que conectan tu marca con las audiencias correctas y generan resultados que se sienten y se miden.",
+    "cta.dark.btn": "Cotizar campaña →",
+    "cta.light.label": "PARA CREADORES",
+    "cta.light.sub": "Representación. Oportunidades. Crecimiento.",
+    "cta.light.body":
+      "Te representamos para que tu talento llegue más lejos con colaboraciones que suman a tu visión y a tu comunidad.",
+    "cta.light.btn": "ÚNETE A LAMB →",
+    // Footer
+    "footer.nav.nosotros": "NOSOTROS",
+    "footer.nav.ecosistema": "ECOSISTEMA",
+    "footer.nav.talentos": "TALENTOS",
+    "footer.contact": "Hablemos",
+    "footer.city": "Ciudad de México",
+  },
+
+  en: {
+    // Navbar
+    "nav.nosotros": "About Us",
+    "nav.ecosistema": "Ecosystem",
+    "nav.talentos": "Talent",
+    "nav.cta": "Get a quote →",
+    // Hero
+    "hero.pre": "CONNECTING BRANDS WITH",
+    "hero.title1": "AUDIENCES",
+    "hero.title2": "REAL",
+    "hero.sub":
+      "Influencer Marketing with purpose, strategy and authentic community in Mexico and LATAM.",
+    "hero.cta": "Get a quote →",
+    // About
+    "about.pre": "WE ARE LAMB",
+    "about.title1": "EXPERTS IN",
+    "about.title2": "STORYTELLING",
+    "about.body1":
+      "At Agency LAMB we believe that true impact doesn't come from empty metrics, but",
+    "about.body2":
+      "from the stories, authenticity and vision behind each talent.",
+    "about.right":
+      "With strategy, firmness and closeness, we connect brands with authentic talent to build real impact and lasting reputation.",
+    // Clients
+    "clients.h1": "CAMPAIGNS THAT CONNECT",
+    "clients.h2": "RESULTS THAT SPEAK",
+    // Ecosistema
+    "eco.label": "Our Services",
+    "eco.title.pre": "THE LAMB",
+    "eco.title.span": "ECOSYSTEM",
+    "eco.title.post": "",
+    "eco.01.head": "360° EXPERIENCE & PR.",
+    "eco.01.body":
+      "Beyond the post. From PR kits to physical events, we shield your campaign from start to finish.",
+    "eco.02.head": "AUDIENCE ENGINEERING.",
+    "eco.02.body":
+      "We connect. We amplify. We validate. We generate trends. Profiles selected with strategy, not by chance.",
+    "eco.03.head": "AGILITY IN THE DNA.",
+    "eco.03.body": "We present Talent and close negotiations. No fine print.",
+    // Codigos
+    "codigos.label": "Our Principles",
+    "codigos.01.head": "PEOPLE BEFORE PROFILES",
+    "codigos.02.head": "CREATIVITY THAT CONNECTS",
+    "codigos.03.head": "CULTURE MOVES INFLUENCE",
+    "codigos.04.head": "WE BUILD TOGETHER",
+    "codigos.05.head": "DETAILS CREATE LEGACY",
+    "codigos.01.desc":
+      "Before numbers or metrics, we see people, stories and purpose. We believe in developing talent from their authenticity.",
+    "codigos.02.desc":
+      "We don't believe in creating for the sake of it. Every idea, campaign or strategy must generate a real connection between the talent, brands and audience.",
+    "codigos.03.desc":
+      "We understand the internet, trends and cultural conversation. We know that relevance is born when a talent genuinely connects with their generation.",
+    "codigos.04.desc":
+      "More than managers, we are creative and strategic allies. We walk alongside our talents at every stage of their growth.",
+    "codigos.05.desc":
+      "We believe great careers are built by taking care of every detail: from a negotiation to the way a story is told.",
+    // Equipo
+    "equipo.title1": "THE TEAM",
+    "equipo.title2": "BEHIND THE IMPACT",
+    // Stats
+    "stats.01.label": "Campaigns",
+    "stats.02.label": "Years redefining Management",
+    "stats.03.label": "Top creators exclusively",
+    "stats.no": "NO",
+    "stats.p1": "CHASING",
+    "stats.p2": "TRENDS.",
+    "stats.p3": "Cultivating",
+    "stats.p4": "COMMUNITY",
+    // Talentos
+    "talentos.title": "TALENT",
+    "talentos.sub1_part1": "that",
+    "talentos.sub1_part2": "Inspire",
+    "talentos.sub2": "AUDIENCES THAT CONNECT.",
+    "talentos.body":
+      "Authentic creators with real communities. It's not about followers — it's about genuine connection with audiences that trust their voice.",
+    "talentos.cta1": "GET A QUOTE",
+    "talentos.cta2": "JOIN LAMB",
+    // CtaSplit
+    "cta.dark.label": "FOR BRANDS",
+    "cta.dark.sub": "Strategy. Creativity. Real Impact.",
+    "cta.dark.body":
+      "We create purpose-driven campaigns that connect your brand with the right audiences and generate results that are felt and measured.",
+    "cta.dark.btn": "Get a quote →",
+    "cta.light.label": "FOR CREATORS",
+    "cta.light.sub": "Representation. Opportunities. Growth.",
+    "cta.light.body":
+      "We represent you so your talent reaches further with collaborations that add to your vision and community.",
+    "cta.light.btn": "JOIN LAMB →",
+    // Footer
+    "footer.nav.nosotros": "ABOUT US",
+    "footer.nav.ecosistema": "ECOSYSTEM",
+    "footer.nav.talentos": "TALENT",
+    "footer.contact": "Let's talk",
+    "footer.city": "Mexico City",
+  },
+};
+
+/**
+ * Apply a language's translations to all [data-i18n] elements.
+ * @param {'es'|'en'} lang
+ */
+export function applyTranslations(lang) {
+  const t = translations[lang];
+  if (!t) return;
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (key && t[key] !== undefined) {
+      el.textContent = t[key];
+    }
+  });
+
+  document.documentElement.setAttribute("lang", lang);
+}

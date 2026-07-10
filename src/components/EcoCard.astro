@@ -1,0 +1,84 @@
+---
+interface Props {
+  num: string;
+  head: string;
+  body: string;
+  theme: 'dark' | 'light';
+  stickyTop?: number;
+  stickyZ?: number;
+  delay?: string;
+  i18nHead?: string;
+  i18nBody?: string;
+}
+
+const {
+  num,
+  head,
+  body,
+  theme,
+  stickyTop,
+  stickyZ,
+  delay,
+  i18nHead,
+  i18nBody,
+} = Astro.props;
+
+const inlineStyle = [
+  stickyTop !== undefined ? `top: ${stickyTop}px;` : '',
+  stickyZ !== undefined ? `z-index: ${stickyZ};` : '',
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<div
+  class:list={[
+    'eco-card anim rounded-[40px] overflow-hidden sticky origin-top transition-[transform] duration-150 will-change-transform mb-24',
+    'lg:flex lg:items-center lg:justify-center', 
+    theme === 'dark'
+      ? 'bg-dark-card border border-gold/[0.09]'
+      : 'bg-cream-2',
+    delay,
+  ]}
+  style={inlineStyle || undefined}
+>
+  <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 p-[80px_48px_64px] w-full">
+    <div
+      class="shrink-0 font-bold text-8xl leading-none lg:w-[120px]"
+      style="
+        background: linear-gradient(
+          180deg,
+          rgba(204,154,38,0.55) 0%,
+          rgba(102,77,19,0.55) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      "
+    >
+      {num}
+    </div>
+
+    <div class="w-full lg:w-[650px] lg:h-[250px] lg:flex lg:flex-col lg:justify-center">
+      <h3
+        class:list={[
+          'font-bold text-[clamp(22px,3vw,36px)] leading-[1.1]',
+          theme === 'dark' ? 'text-gold-alt' : 'text-dark',
+        ]}
+        data-i18n={i18nHead}
+      >
+        {head}
+      </h3>
+
+      <p
+        class:list={[
+          'mt-5 font-normal text-[16px] leading-[1.75]',
+          theme === 'dark' ? 'text-white/70' : 'text-dark',
+        ]}
+        data-i18n={i18nBody}
+      >
+        {body}
+      </p>
+    </div>
+  </div>
+</div>

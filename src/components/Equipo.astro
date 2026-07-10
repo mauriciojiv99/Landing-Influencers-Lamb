@@ -1,0 +1,154 @@
+---
+import TalentCard from "./team/TalentCard.astro";
+import { Image } from 'astro:assets';
+import Talent1 from '@/images/team-section/talent-1-charly.jpg'
+import Talent2 from '@/images/team-section/talent-2-ana-moreno.jpg'
+import Talent3 from '@/images/team-section/talent-3-natalia.jpg'
+import Talent4 from '@/images/team-section/talent-4-mara.jpg'
+import Talent5 from '@/images/team-section/talent-5-phanie.png'
+
+
+const cards = [
+  // Fila superior (Izquierda a Derecha)
+  { img: Talent1,alt: 'Foto de Charly', rotate: '-5deg',  top: '18%',  left: '4%',   width: '235px', z: 1 },
+  { img: Talent2,alt:'Foto de Ana Moreno' ,rotate: '12deg',  top: '17%',  left: '35%',  width: '235px', z: 3 },
+  { img: Talent3,alt:'Foto de Natalia', rotate: '-14deg', top: '18%',  left: '73%',  width: '235px', z: 2 },
+  
+  // Fila inferior / intercalada (Izquierda a Derecha)
+  { img: Talent4, alt:'Foto de Mara' , rotate: '13.12deg',   top: '46%',  left: '13%',  width: '235px', z: 4 },
+  { img: Talent5,alt:'Foto de Phanie' , rotate: '0deg',  top: '50%',  left: '44%',  width: '235px', z: 5 },
+  // { img: '/images/team-6.jpg', rotate: '8deg',   top: '54%',  left: '72%',  width: '235px', z: 6 },
+];
+---
+
+<section class="team bg-background px-20 py-[120px] overflow-hidden max-lg:px-8 max-lg:py-20">
+<h2 class="anim text-lg sm:text-xl md:text-[clamp(28px,4vw,48px)] tracking-[4px] sm:tracking-[6px] md:tracking-[12px] uppercase mb-10 md:mb-14 text-center flex flex-col md:block items-center justify-center gap-1 md:gap-0">
+  <span class="text-foreground" data-i18n="equipo.title1">EL EQUIPO</span>
+  <span class="hidden md:inline">&nbsp;</span>
+  <span class="text-[#C5A85C]" data-i18n="equipo.title2">DETRÁS DEL IMPACTO</span>
+</h2>
+
+  <div
+    class="relative h-[740px] w-full max-w-[1050px] mx-auto max-lg:h-auto max-lg:flex max-lg:flex-wrap max-lg:justify-center"
+    id="dragContainer"
+  >
+    {cards.map((card) => (
+      <TalentCard {...card} />
+    ))}
+  </div>
+</section>
+
+<style>
+  /* Mobile must override inline transform — requires !important */
+  @media (max-width: 900px) {
+    .drag-card { transform: none !important; will-change: auto; }
+  }
+</style>
+
+<script>
+  const container = document.getElementById('dragContainer') as HTMLElement;
+  if (!container) throw new Error('dragContainer not found');
+
+  let topZ = 6;
+
+  container.querySelectorAll<HTMLElement>('.drag-card').forEach((card) => {
+    let isDragging   = false;
+    let startCardX   = 0, startCardY   = 0;
+    let startPtrX    = 0, startPtrY    = 0;
+    let velX         = 0, velY         = 0;
+    let lastPtrX     = 0, lastPtrY     = 0;
+    let lastT        = 0;
+    let rafId: number | null = null;
+
+    function ensurePx() {
+      if (card.style.left.includes('%')) {
+        card.style.left = (parseFloat(card.style.left) / 100 * container.offsetWidth)  + 'px';
+        card.style.top  = (parseFloat(card.style.top)  / 100 * container.offsetHeight) + 'px';
+      }
+    }
+
+    function px(prop: 'left' | 'top') { return parseFloat(card.style[prop]) || 0; }
+
+    function clamp(x: number, y: number) {
+      const maxX = container.offsetWidth  - card.offsetWidth;
+      const maxY = container.offsetHeight - card.offsetHeight;
+      return { x: Math.max(0, Math.min(x, maxX)), y: Math.max(0, Math.min(y, maxY)) };
+    }
+
+    card.addEventListener('pointerdown', (e: PointerEvent) => {
+      e.preventDefault();
+      card.setPointerCapture(e.pointerId);
+
+      ensurePx();
+      isDragging = true;
+      card.classList.add('is-dragging');
+
+      topZ++;
+      card.style.zIndex = String(topZ);
+
+      startCardX = px('left');
+      startCardY = px('top');
+      startPtrX  = e.clientX;
+      startPtrY  = e.clientY;
+      lastPtrX   = e.clientX;
+      lastPtrY   = e.clientY;
+      lastT      = performance.now();
+      velX = velY = 0;
+
+      if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+    });
+
+    card.addEventListener('pointermove', (e: PointerEvent) => {
+      if (!isDragging) return;
+
+      const now = performance.now();
+      const dt  = Math.max(1, now - lastT);
+      velX  = (e.clientX - lastPtrX) / dt;
+      velY  = (e.clientY - lastPtrY) / dt;
+      lastPtrX = e.clientX;
+      lastPtrY = e.clientY;
+      lastT    = now;
+
+      const pos = clamp(startCardX + (e.clientX - startPtrX), startCardY + (e.clientY - startPtrY));
+      card.style.left = pos.x + 'px';
+      card.style.top  = pos.y + 'px';
+    });
+
+    card.addEventListener('pointerup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      card.classList.remove('is-dragging');
+
+      let vx = velX * 120;
+      let vy = velY * 120;
+
+      function momentum() {
+        if (Math.abs(vx) < 0.15 && Math.abs(vy) < 0.15) { rafId = null; return; }
+
+        const maxX = container.offsetWidth  - card.offsetWidth;
+        const maxY = container.offsetHeight - card.offsetHeight;
+        let x = px('left') + vx;
+        let y = px('top')  + vy;
+
+        if (x < 0)    { x = 0;    vx =  Math.abs(vx) * 0.45; }
+        if (y < 0)    { y = 0;    vy =  Math.abs(vy) * 0.45; }
+        if (x > maxX) { x = maxX; vx = -Math.abs(vx) * 0.45; }
+        if (y > maxY) { y = maxY; vy = -Math.abs(vy) * 0.45; }
+
+        card.style.left = x + 'px';
+        card.style.top  = y + 'px';
+
+        vx *= 0.92;
+        vy *= 0.92;
+        rafId = requestAnimationFrame(momentum);
+      }
+
+      momentum();
+    });
+
+    card.addEventListener('lostpointercapture', () => {
+      isDragging = false;
+      card.classList.remove('is-dragging');
+    });
+  });
+</script>

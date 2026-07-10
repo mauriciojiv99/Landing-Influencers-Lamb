@@ -1,0 +1,50 @@
+---
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+import InstagramIcon from "../svg/instagram.svg";
+import TikTokIcon from "../svg/tiktok.svg";
+
+const { name, lastname, textContent, social} = Astro.props
+---
+
+<Card className="w-[230px] lg:w-[280px] bg-dark/[0.88] backdrop-blur-[16px] border border-gold/[0.18] rounded-3xl p-4 lg:p-[20px_22px] shadow-2xl transition-all duration-300">
+  <CardHeader className="p-0 flex flex-col space-y-1.5 pb-2 lg:pb-3">
+    <CardTitle className="flex gap-2 lg:flex-col font-beachday font-extrabold text-xl lg:text-3xl tracking-[1px] lg:tracking-[1.5px] text-white uppercase m-0 leading-[1.2] lg:leading-[1.3]">
+      <div>{name}</div> 
+      <div class="text-[#F7CB5C]">{lastname}</div>
+    </CardTitle>
+  </CardHeader>
+  <CardContent className="p-0 space-y-2 lg:space-y-3">
+     <p class="text-white text-xs lg:text-sm leading-relaxed">{textContent}</p>
+     
+    <div class="flex items-center gap-3 pt-2 border-t border-gold/[0.12]">
+       <a href="#" class="social-btn w-10 h-10 lg:w-12 lg:h-12 bg-[#1a1a1a] rounded-full border border-gold flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="Instagram">
+      <span class="w-[18px] h-[18px] lg:w-[22px] lg:h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+        <InstagramIcon />
+      </span>
+    </a>
+      <div>
+        <span class="font-sans font-extrabold text-[14px] lg:text-[16px] text-gold block leading-none">{social.instagram.followers}</span>
+        <span class="font-sans text-[9px] lg:text-[10px] text-white/40 block mt-0.5">{social.instagram.user}</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3 pt-2 border-t border-gold/[0.12]">
+   <a href="#" class="social-btn w-10 h-10 lg:w-12 lg:h-12 bg-[#1a1a1a] rounded-full border border-gold  flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="TikTok">
+      <span class="w-[18px] h-[18px] lg:w-[22px] lg:h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+        <TikTokIcon />
+      </span>
+    </a>
+      <div>
+        <span class="font-sans font-extrabold text-[14px] lg:text-[16px] text-gold block leading-none">{social.tiktok.followers}</span>
+        <span class="font-sans text-[9px] lg:text-[10px] text-white/40 block mt-0.5">{social.tiktok.user}</span>
+      </div>
+    </div>
+  </CardContent>
+</Card>
