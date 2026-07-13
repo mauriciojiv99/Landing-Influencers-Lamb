@@ -191,6 +191,11 @@ const talents = [
 
   const clientTalents = JSON.parse(photoEl?.getAttribute('data-all-photos') || '[]');
 
+  clientTalents.forEach((t: { src: string; alt: string }) => {
+    const img = new Image();
+    img.src = t.src;
+  });
+
   totalEl.textContent = String(totalTalents);
 
   function update(idx: number): void {
@@ -220,11 +225,18 @@ const talents = [
     const cardGroup = document.getElementById('tv2CardGroup')!;
     photoEl.classList.add('fading-photo');
     cardGroup.classList.add('fading');
+
     setTimeout(() => {
       current = (current + delta + totalTalents) % totalTalents;
-      update(current);
-      photoEl.classList.remove('fading-photo');
-      cardGroup.classList.remove('fading');
+
+      const nextSrc = clientTalents[current]?.src;
+      const preload = new Image();
+      preload.onload = () => {
+        update(current);
+        photoEl.classList.remove('fading-photo');
+        cardGroup.classList.remove('fading');
+      };
+      preload.src = nextSrc;
     }, 380);
   }
 
