@@ -10,6 +10,7 @@ import Talent5 from '@/images/talents-section/talent-5.png'
 
 const talents = [
   {
+    id: 'monica',
     name: 'MÓNICA',
     lastname: 'MARQUET',
     textContent: 'Mónica ha cautivado a más de 250,000 seguidores en Instagram con su estilo gótico y enfoque en el modelaje alternativo',
@@ -17,17 +18,12 @@ const talents = [
     image: Talent1,
     alt: 'Imagen de influencer Mónica Marquet',
     social: {
-      instagram: { 
-        user: 'monica.marquet',
-        followers: '110.7 K'
-      },
-      tiktok:{
-        user: 'monica.marquet',
-        followers:'113 k'
-      }
+      instagram: { user: 'monica.marquet', followers: '110.7 K' },
+      tiktok:{ user: 'monica.marquet', followers:'113 k' }
     }
   },
   {
+    id: 'alexa',
     name: 'ALEXA',
     lastname: 'ARCHU',
     textContent: 'Alexa Archu es una joven creativa mexicana que ha conquistado redes sociales con su carisma, talento para la danza y contenido lleno de humor y creatividad.',
@@ -35,17 +31,12 @@ const talents = [
     image: Talent2,
     alt: 'Imagen de influencer Alexa Archu',
     social: {
-      instagram: { 
-        user: 'alexaarchu',
-        followers: '193 K'
-      },
-      tiktok:{
-        user: 'alexaarchu',
-        followers:'2.2 M'
-      }
+      instagram: { user: 'alexaarchu', followers: '193 K' },
+      tiktok:{ user: 'alexaarchu', followers:'2.2 M' }
     }
   },
   {
+    id: 'dan',
     name: 'DAN',
     lastname: 'PARRA',
     textContent: 'Dan Parra, destaca por su autenticidad. Su participación en realities y concursos de baile la ha llevado a conectar con una comunidad cercana e inspiradora.',
@@ -53,17 +44,12 @@ const talents = [
     image: Talent3,
     alt: 'Imagen de influencer Dan Parra',
     social: {
-      instagram: { 
-        user: 'dannparra',
-        followers: '107 K'
-      },
-      tiktok:{
-        user: 'dannparra',
-        followers:'147.6 K'
-      }
+      instagram: { user: 'dannparra', followers: '107 K' },
+      tiktok:{ user: 'dannparra', followers:'147.6 K' }
     }
   },
   {
+    id: 'milo',
     name: 'MILO',
     lastname: 'HARF',
     textContent: 'Miloh, cantautora mexicana y creadora de contenido, comparte música emotiva y auténtica. Firmada con BAM Music, conecta a una comunidad joven y apasionada.',
@@ -71,17 +57,12 @@ const talents = [
     image: Talent4,
     alt: 'Imagen de influencer Milo Harf',
     social: {
-      instagram: { 
-        user: 'miloharf',
-        followers: '45.1 K'
-      },
-      tiktok:{
-        user: 'miloh_____',
-        followers:'346.5 K'
-      }
+      instagram: { user: 'miloharf', followers: '45.1 K' },
+      tiktok:{ user: 'miloh_____', followers:'346.5 K' }
     }
   },
   {
+    id: 'andrea',
     name: 'ANDREA',
     lastname: 'BENTLEY',
     textContent: 'Influencer de estilo de vida, moda, viajes, comparte contenido, y conecta con su comunidad a través de experiencias personales y momentos significativos.',
@@ -89,14 +70,8 @@ const talents = [
     image: Talent5,
     alt: 'Imagen de influencer Andrea Bentley',
     social: {
-      instagram: { 
-        user: 'andreabentley_',
-        followers: '134 K'
-      },
-      tiktok:{
-        user: 'andreabentley',
-        followers:'373.1 K'
-      }
+      instagram: { user: 'andreabentley_', followers: '134 K' },
+      tiktok:{ user: 'andreabentley', followers:'373.1 K' }
     }
   }
 ];
@@ -112,16 +87,18 @@ const talents = [
   style="background-image: url('/images/backgrounds/background-talents-section.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 
+  <!-- COLUMNA IZQUIERDA: TEXTOS Y CONTENIDO -->
   <div class="relative overflow-hidden p-4 py-10 md:p-8 md:py-16 lg:p-[80px_72px] flex items-center">
     <div class="relative z-[2] w-full anim">
+      
       <h2
         class="font-beachday text-[clamp(48px,11vw,120px)] text-white leading-[0.88] tracking-[3px] m-0"
         data-i18n="talentos.title"
       >TALENTOS</h2>
       
-      <p class="relative font-normal leading-none m-0 mt-1 lg:mt-3 flex flex-col lg:block">
-        <span class="static lg:absolute lg:top-4 lg:left-0 text-white text-3xl lg:text-5xl" data-i18n="talentos.sub1_part1">que</span> 
-        <span class="text-gold text-5xl lg:text-8xl pl-0 lg:pl-24 mt-0.5 lg:mt-0" data-i18n="talentos.sub1_part2">Inspiran</span>
+      <p class="relative font-normal leading-none m-0 mt-2 lg:mt-4">
+        <span class="absolute top-1 lg:top-4 left-0 text-white text-3xl lg:text-5xl" data-i18n="talentos.sub1_part1">que</span>
+        <span class="text-gold text-5xl lg:text-8xl pl-14 lg:pl-24 inline-block" data-i18n="talentos.sub1_part2">Inspiran</span>
       </p>
 
       <p class="text-lg lg:text-xl italic text-white tracking-[2px] mt-[10px]" data-i18n="talentos.sub2">
@@ -138,8 +115,13 @@ const talents = [
             class={`js-talent-tags flex flex-wrap gap-2 transition-all duration-300 ${index === 0 ? 'flex' : 'hidden'}`} 
             data-tags-idx={index}
           >
-            {talent.tags.map((tag) => (
-              <span class="tv2__tag px-3 py-1 bg-white/10 text-white rounded-full text-[10px] lg:text-xs font-semibold uppercase tracking-wider">{tag}</span>
+            {talent.tags.map((tag, tagIdx) => (
+              <span 
+                class="tv2__tag px-3 py-1 bg-white/10 text-white rounded-full text-[10px] lg:text-xs font-semibold uppercase tracking-wider"
+                data-i18n={`talentos.${talent.id}.tag_${tagIdx}`}
+              >
+                {tag}
+              </span>
             ))}
           </div>
         ))}
@@ -152,9 +134,10 @@ const talents = [
     </div>
   </div>
 
+  <!-- COLUMNA DERECHA: FOTOS Y TARJETAS INTERACTIVAS -->
   <div class="relative overflow-hidden min-h-[540px] sm:min-h-[580px] lg:min-h-[720px]">
     
-    <Image 
+<Image 
       class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full h-[490px] sm:h-[580px] lg:h-[660px] object-contain object-bottom transition-opacity duration-[380ms] z-[1]"
       src={talents[0].image}       
       alt={`${talents[0].name} ${talents[0].lastname}`}
@@ -182,7 +165,13 @@ const talents = [
       <div id="tv2CardContainer">
         {talents.map((talent, index) => (
           <div class={`js-talent-card transition-all duration-300 ${index === 0 ? 'block opacity-100 scale-100' : 'hidden opacity-0 scale-95'}`} data-card-idx={index}>
-            <InfluencerCard name={talent.name} lastname={talent.lastname} textContent={talent.textContent} social={talent.social} />
+            <InfluencerCard 
+              name={talent.name} 
+              lastname={talent.lastname} 
+              textContent={talent.textContent} 
+              social={talent.social} 
+              i18nKey={`talentos.${talent.id}.desc`}
+            />
           </div>
         ))}
       </div>

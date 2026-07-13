@@ -96,6 +96,32 @@ export const translations = {
     "footer.nav.talentos": "TALENTOS",
     "footer.contact": "Hablemos",
     "footer.city": "Ciudad de México",
+
+    // Talentos individuales
+    "talentos.monica.desc":
+      "Mónica ha cautivado a más de 250,000 seguidores en Instagram con su estilo gótico y enfoque en el modelaje alternativo",
+    "talentos.monica.tag_0": "ESTILO DE VIDA",
+    "talentos.monica.tag_1": "MODA ALTERNATIVA",
+
+    "talentos.alexa.desc":
+      "Alexa Archu es una joven creativa mexicana que ha conquistado redes sociales con su carisma, talento para la danza y contenido lleno de humor y creatividad.",
+    "talentos.alexa.tag_0": "ENTRETENIMIENTO",
+    "talentos.alexa.tag_1": "CULTURA",
+
+    "talentos.dan.desc":
+      "Dan Parra, destaca por su autenticidad. Su participación en realities y concursos de baile la ha llevado a conectar con una comunidad cercana e inspiradora.",
+    "talentos.dan.tag_0": "MÚSICA",
+    "talentos.dan.tag_1": "CULTURA URBANA",
+
+    "talentos.milo.desc":
+      "Miloh, cantautora mexicana y creadora de contenido, comparte música emotiva y auténtica. Firmada con BAM Music, conecta a una comunidad joven y apasionada.",
+    "talentos.milo.tag_0": "MÚSICA",
+    "talentos.milo.tag_1": "CULTURA URBANA",
+
+    "talentos.andrea.desc":
+      "Influencer de estilo de vida, moda, viajes, comparte contenido, y conecta con su comunidad a través de experiencias personales y momentos significativos.",
+    "talentos.andrea.tag_0": "MÚSICA",
+    "talentos.andrea.tag_1": "CULTURA URBANA",
   },
 
   en: {
@@ -192,6 +218,32 @@ export const translations = {
     "footer.nav.talentos": "TALENT",
     "footer.contact": "Let's talk",
     "footer.city": "Mexico City",
+
+    // Talentos individuales (Versión EN)
+    "talentos.monica.desc":
+      "Monica has captivated over 250,000 followers on Instagram with her gothic style and focus on alternative modeling.",
+    "talentos.monica.tag_0": "LIFESTYLE",
+    "talentos.monica.tag_1": "ALTERNATIVE FASHION",
+
+    "talentos.alexa.desc":
+      "Alexa Archu is a young creative Mexican who has conquered social media with her charisma, dancing talent, and content full of humor and creativity.",
+    "talentos.alexa.tag_0": "ENTERTAINMENT",
+    "talentos.alexa.tag_1": "CULTURE",
+
+    "talentos.dan.desc":
+      "Dan Parra stands out for her authenticity. Her participation in reality shows and dance competitions has led her to connect with a close and inspiring community.",
+    "talentos.dan.tag_0": "MUSIC",
+    "talentos.dan.tag_1": "URBAN CULTURE",
+
+    "talentos.milo.desc":
+      "Miloh, a Mexican singer-songwriter and content creator, shares emotional and authentic music. Signed with BAM Music, she connects a young and passionate community.",
+    "talentos.milo.tag_0": "MUSIC",
+    "talentos.milo.tag_1": "URBAN CULTURE",
+
+    "talentos.andrea.desc":
+      "Lifestyle, fashion, and travel influencer, she shares content and connects with her community through personal experiences and meaningful moments.",
+    "talentos.andrea.tag_0": "MUSIC",
+    "talentos.andrea.tag_1": "URBAN CULTURE",
   },
 };
 

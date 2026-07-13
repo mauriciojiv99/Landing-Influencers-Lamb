@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import LogoAgencyLamb from '@/images/logo.png'
+import LangSwitcher from './LangSwitcher.astro';
 ---
 
 
@@ -84,6 +85,9 @@ import LogoAgencyLamb from '@/images/logo.png'
           <a href="#talentos" data-i18n="nav.talentos" class="enlace-movil block font-sans font-semibold text-[14px] tracking-[1.8px] text-cream uppercase no-underline transition-colors duration-[250ms] hover:text-gold">
             Talentos
           </a>
+        </li>
+        <li class="flex justify-end lg:hidden">
+            <LangSwitcher/>
         </li>
       </ul>
     </nav>

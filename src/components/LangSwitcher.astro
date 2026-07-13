@@ -2,14 +2,12 @@
 ---
 
 <div 
-  class="fixed bottom-8 left-8 z-[1000] inline-flex items-center bg-dark/[0.88] backdrop-blur-[16px] border border-gold/[0.22] rounded-full p-1 max-[600px]:bottom-5 max-[600px]:left-5"
-  id="langSw"
+  class="lang-switcher-root z-[1000] inline-flex items-center bg-dark/[0.88] backdrop-blur-[16px] border border-gold/[0.22] rounded-full p-1 max-[600px]:bottom-5 max-[600px]:left-5"
   role="group"
   aria-label="Language switcher"
 >
   <div
-    class="absolute top-1 left-1 h-[calc(100%-8px)] bg-gold rounded-full pointer-events-none transition-[left,width] duration-[320ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-    id="langSlider"
+    class="lang-slider absolute top-1 left-1 h-[calc(100%-8px)] bg-gold rounded-full pointer-events-none transition-[left,width] duration-[320ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
   ></div>
   <button
     class="lang-sw__btn relative z-[1] inline-flex items-center gap-[5px] py-[7px] px-[13px] border-0 bg-transparent rounded-full font-sans font-bold text-[11px] tracking-[1.4px] uppercase text-white/45 cursor-pointer whitespace-nowrap transition-colors duration-[280ms] [tap-highlight-color:transparent] is-active max-[600px]:px-[10px]"
@@ -36,46 +34,60 @@
 <script>
   import { applyTranslations } from '../scripts/translations.js';
 
-  const sw      = document.getElementById('langSw')      as HTMLElement;
-  const slider  = document.getElementById('langSlider')  as HTMLElement;
-  const buttons = sw.querySelectorAll<HTMLButtonElement>('.lang-sw__btn');
+  const switchers = document.querySelectorAll('.lang-switcher-root');
 
-  function snapSlider(btn: HTMLButtonElement): void {
-    slider.style.left  = btn.offsetLeft + 'px';
-    slider.style.width = btn.offsetWidth + 'px';
-  }
+  function activateBtnInSwitcher(sw: Element, lang: string, animate: boolean = true): void {
+    const slider  = sw.querySelector('.lang-slider') as HTMLElement;
+    const buttons = sw.querySelectorAll<HTMLButtonElement>('.lang-sw__btn');
+    const targetBtn = sw.querySelector(`[data-lang="${lang}"]`) as HTMLButtonElement;
 
-  function activateBtn(btn: HTMLButtonElement): void {
+    if (!targetBtn || !slider) return;
+
     buttons.forEach((b) => {
       b.classList.remove('is-active');
       b.setAttribute('aria-pressed', 'false');
     });
-    btn.classList.add('is-active');
-    btn.setAttribute('aria-pressed', 'true');
-    snapSlider(btn);
+
+    targetBtn.classList.add('is-active');
+    targetBtn.setAttribute('aria-pressed', 'true');
+
+    if (!animate) {
+      slider.style.transition = 'none';
+    }
+
+    slider.style.left  = targetBtn.offsetLeft + 'px';
+    slider.style.width = targetBtn.offsetWidth + 'px';
+
+    if (!animate) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => { slider.style.transition = ''; });
+      });
+    }
   }
 
   const savedLang = localStorage.getItem('lamb-lang') || 'es';
-  const initBtn = sw.querySelector<HTMLButtonElement>(`[data-lang="${savedLang}"]`)
-                  ?? sw.querySelector<HTMLButtonElement>('.lang-sw__btn')!;
 
-  slider.style.transition = 'none';
-  activateBtn(initBtn);
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => { slider.style.transition = ''; });
+  switchers.forEach((sw) => {
+    activateBtnInSwitcher(sw, savedLang, false);
+
+    const buttons = sw.querySelectorAll<HTMLButtonElement>('.lang-sw__btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (btn.classList.contains('is-active')) return;
+
+        const lang = btn.getAttribute('data-lang') as 'es' | 'en';
+        
+        applyTranslations(lang);
+        localStorage.setItem('lamb-lang', lang);
+
+        switchers.forEach((allSw) => {
+          activateBtnInSwitcher(allSw, lang, true);
+        });
+      });
+    });
   });
 
   if (savedLang !== 'es') {
     applyTranslations(savedLang as 'es' | 'en');
   }
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      if (btn.classList.contains('is-active')) return;
-      activateBtn(btn);
-      const lang = btn.getAttribute('data-lang') as 'es' | 'en';
-      applyTranslations(lang);
-      localStorage.setItem('lamb-lang', lang);
-    });
-  });
 </script>

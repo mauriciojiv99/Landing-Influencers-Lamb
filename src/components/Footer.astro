@@ -29,10 +29,7 @@ import  Logo from "@/images/logo.png"
       <p class="font-medium text-[12px] text-gold tracking-[2px] uppercase mb-[14px]" data-i18n="footer.contact">
         Hablemos
       </p>
-      <a href="mailto:brandomd@agencylamb.com"
-        class="block font-light text-[clamp(14px,1.8vw,22px)] text-white no-underline mb-1 transition-colors duration-300 hover:text-gold">
-        brandomd@agencylamb.com
-      </a>
+  
       <a href="mailto:mara@agencylamb.com"
         class="block font-light text-[clamp(14px,1.8vw,22px)] text-white no-underline mb-1 transition-colors duration-300 hover:text-gold">
         mara@agencylamb.com
@@ -40,14 +37,12 @@ import  Logo from "@/images/logo.png"
       <p class="text-[13px] text-white/40 mt-2" data-i18n="footer.city">Ciudad de México</p>
     </div>
   
- <div class="anim text-center order-first lg:order-none shrink-0">
-  <Image src={Logo} alt="Agency Lamb logo"   class="h-[180px] w-auto object-contain"/>
-
-</div>
+    <div class="anim text-center order-first lg:order-none shrink-0">
+      <!-- Agregamos mx-auto y block a las clases de la imagen -->
+      <Image src={Logo} alt="Agency Lamb logo" class="h-[180px] w-auto object-contain mx-auto block"/>
+    </div>
 
   </div>
-
-
 
 </div>
 
@@ -59,7 +54,7 @@ import  Logo from "@/images/logo.png"
     AGENCY LAMB &copy; 2026, All Rights Reserved
   </p>
   <div class="flex gap-2">
-    <a href="#" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="LinkedIn">
+    <a href="https://www.linkedin.com/company/agency-lamb/" target="_blank" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="LinkedIn">
       <span class="w-[22px] h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
         <LinkedinIcon />
       </span>
@@ -71,7 +66,7 @@ import  Logo from "@/images/logo.png"
       </span>
     </a>
 
-    <a href="#" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="Instagram">
+    <a href="https://www.instagram.com/agency_lamb/" target="_blank" class="social-btn w-12 h-12 bg-[#1a1a1a] rounded-full flex items-center justify-center overflow-hidden no-underline transition-transform duration-300 hover:scale-110" aria-label="Instagram">
       <span class="w-[22px] h-[22px] flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
         <InstagramIcon />
       </span>

@@ -1,4 +1,5 @@
 ---
+// No props — static content
 ---
 
 <section id="home-section" class="relative w-full min-h-screen overflow-hidden flex items-end xl:items-center">
@@ -16,7 +17,7 @@
 
   <button 
     id="audio-control"
-    class="absolute top-6 right-6 md:top-10 md:right-12 z-[3] bg-black/60 hover:bg-black/80 text-white p-3.5 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 flex items-center justify-center cursor-pointer border border-white/10"
+    class="absolute top-24 right-6 md:top-28 md:right-12 z-[3] bg-black/60 hover:bg-black/80 text-white p-3.5 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 flex items-center justify-center cursor-pointer border border-white/10"
     aria-label="Alternar sonido"
   >
     <svg id="icon-muted" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -29,83 +30,7 @@
     </svg>
   </button>
 
-  <div class="relative z-[2] w-full max-w-[960px] mx-auto xl:ml-0 xl:mr-auto text-center xl:text-left pt-[240px] lg:pt-[280px] xl:pt-[160px] pb-16 px-6 lg:px-12 xl:pb-[100px] xl:pl-24">
-    
-    <a
-      href="https://qrkit.co/marcas"
-      target="_blank"
-      class="inline-flex items-center justify-center gap-[10px] bg-gold text-white font-bold text-[13px] tracking-[1.6px] uppercase py-4 px-8 rounded-xl no-underline mt-8 xl:mt-12 transition-all duration-300 hover:bg-[#a8852e] hover:-translate-y-[3px]"
-      data-i18n="hero.cta"
-      style="animation: fadeIn 1s 1.4s both;"
-    >
-      Cotizar campaña &rarr;
-    </a>
-    
-  </div>
 </section>
-
-<script>
-  const video = document.querySelector('#hero-video') as HTMLVideoElement;
-  const audioBtn = document.querySelector('#audio-control');
-  const iconMuted = document.querySelector('#icon-muted');
-  const iconPlaying = document.querySelector('#icon-playing');
-
-  if (audioBtn && video && iconMuted && iconPlaying) {
-    audioBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-
-      if (video.muted) {
-        iconMuted.classList.remove('hidden');
-        iconPlaying.classList.add('hidden');
-      } else {
-        iconMuted.classList.add('hidden');
-        iconPlaying.classList.remove('hidden');
-      }
-    });
-  }
-</script>
-
-<script>
-  const video = document.querySelector('#hero-video') as HTMLVideoElement;
-  const audioBtn = document.querySelector('#audio-control');
-  const iconMuted = document.querySelector('#icon-muted');
-  const iconPlaying = document.querySelector('#icon-playing');
-
-  if (audioBtn && video && iconMuted && iconPlaying) {
-    audioBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-
-      if (video.muted) {
-        iconMuted.classList.remove('hidden');
-        iconPlaying.classList.add('hidden');
-      } else {
-        iconMuted.classList.add('hidden');
-        iconPlaying.classList.remove('hidden');
-      }
-    });
-  }
-</script>
-
-<script>
-  const video = document.querySelector('#hero-video') as HTMLVideoElement;
-  const audioBtn = document.querySelector('#audio-control');
-  const iconMuted = document.querySelector('#icon-muted');
-  const iconPlaying = document.querySelector('#icon-playing');
-
-  if (audioBtn && video && iconMuted && iconPlaying) {
-    audioBtn.addEventListener('click', () => {
-      video.muted = !video.muted;
-
-      if (video.muted) {
-        iconMuted.classList.remove('hidden');
-        iconPlaying.classList.add('hidden');
-      } else {
-        iconMuted.classList.add('hidden');
-        iconPlaying.classList.remove('hidden');
-      }
-    });
-  }
-</script>
 
 <script>
   const video = document.querySelector('#hero-video') as HTMLVideoElement;

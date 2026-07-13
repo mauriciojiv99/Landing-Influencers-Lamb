@@ -8,8 +8,9 @@ import Button from './shared/Button.astro';
 
 <section class="grid grid-cols-1 lg:grid-cols-2 bg-cream-2 overflow-hidden">
 
+  <!-- BLOQUE MARCAS (IZQUIERDA) -->
   <div 
-    class="relative bg-black px-20 py-[120px] min-h-[580px] flex flex-col justify-end max-lg:min-h-[420px] max-lg:px-8 max-lg:py-20 z-[1] lg:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)] lg:-mr-[5vw] lg:pr-[calc(20px+5vw)]"
+    class="relative bg-black px-20 py-[120px] lg:min-h-[580px] flex flex-col justify-end max-lg:px-6 max-lg:pt-10 max-lg:pb-8 z-[1] lg:[clip-path:polygon(0_0,100%_0,85%_100%,0_100%)] lg:-mr-[5vw] lg:pr-[calc(20px+5vw)]"
   >
     <Image
       src={ModelForBrands}
@@ -26,16 +27,16 @@ import Button from './shared/Button.astro';
         PARA MARCAS
       </p>
 
-      <p class="font-bold text-[20px] tracking-[0.5px] mt-4 text-cream/90" data-i18n="cta.dark.sub">
+      <p class="font-bold text-[20px] tracking-[0.5px] mt-2.5 lg:mt-4 text-cream/90" data-i18n="cta.dark.sub">
         Estrategia. Creatividad. Impacto real.
       </p>
 
-      <p class="font-normal text-[16px] leading-[1.7] mt-4 text-white/[0.72]" data-i18n="cta.dark.body">
+      <p class="font-normal text-[16px] leading-[1.7] mt-3 lg:mt-4 text-white/[0.72]" data-i18n="cta.dark.body">
         Creamos campañas con propósito que conectan tu marca con las audiencias correctas y generan
         resultados que se sienten y se miden.
       </p>
 
-      <div class="mt-8 lg:mt-auto">
+      <div class="btn-container mt-4 lg:mt-auto">
         <Button
           href="https://qrkit.co/marcas"
           variant="gold"
@@ -46,7 +47,8 @@ import Button from './shared/Button.astro';
     </div>
   </div>
 
-  <div class="relative bg-cream-2 px-20 py-[120px] min-h-[580px] flex flex-col justify-end max-lg:min-h-[420px] max-lg:px-8 max-lg:py-20 lg:pl-[5vw] overflow-hidden">
+  <!-- BLOQUE CREADORES (DERECHA) -->
+  <div class="relative bg-cream-2 px-20 py-[120px] lg:min-h-[580px] flex flex-col justify-end max-lg:px-6 max-lg:pt-10 max-lg:pb-8 lg:pl-[5vw] overflow-hidden">
 
     <Image
       src={TalentMonica}
@@ -59,16 +61,16 @@ import Button from './shared/Button.astro';
         PARA CREADORES
       </p>
 
-      <p class="font-bold text-[20px] tracking-[0.5px] mt-4 text-dark" data-i18n="cta.light.sub">
+      <p class="font-bold text-[20px] tracking-[0.5px] mt-2.5 lg:mt-4 text-dark" data-i18n="cta.light.sub">
         Representación. Oportunidades. Crecimiento.
       </p>
 
-      <p class="font-normal text-[16px] leading-[1.7] mt-4 text-steel" data-i18n="cta.light.body">
+      <p class="font-normal text-[16px] leading-[1.7] mt-3 lg:mt-4 text-steel" data-i18n="cta.light.body">
         Te representamos para que tu talento llegue más lejos con colaboraciones que suman a tu
         visión y a tu comunidad.
       </p>
 
-      <div class="mt-8 lg:mt-auto">
+      <div class="btn-container mt-4 lg:mt-auto">
         <Button
           href="https://qrkit.co/influencers"
           variant="outline"
@@ -81,3 +83,21 @@ import Button from './shared/Button.astro';
   </div>
 
 </section>
+
+<style>
+  .btn-container :global(a),
+  .btn-container :global(button) {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @media (max-width: 1023px) {
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>
