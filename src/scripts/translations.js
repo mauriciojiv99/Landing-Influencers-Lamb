@@ -23,9 +23,15 @@ export const translations = {
       "de las historias, la autenticidad y la visión detrás de cada talento.",
     "about.right":
       "Con estrategia, firmeza y cercanía, conectamos marcas con talento auténtico para construir impacto real y reputación duradera.",
+
+    "talentos.body_part1": "Representamos perfiles exclusivos",
+    "talentos.body_part2": " y cuidadosamente seleccionados, ",
+    "talentos.body_part3":
+      "enfocados en estilo de vida y responsabilidad social.",
     // Clients
     "clients.h1": "CAMPAÑAS QUE CONECTAN",
     "clients.h2": "RESULTADOS QUE HABLAN",
+
     // Ecosistema
     "eco.label": "Nuestros servicios",
     "eco.title.pre": "El",
@@ -79,6 +85,7 @@ export const translations = {
       "Creadores auténticos con comunidades reales. No es sobre seguidores — es sobre la conexión genuina con audiencias que confían en su voz.",
     "talentos.cta1": "COTIZAR CAMPAÑA",
     "talentos.cta2": "ÚNETE A LAMB",
+    "talentos.tags": "ESTILO DE VIDA • RESPONSABILIDAD SOCIAL",
     // CtaSplit
     "cta.dark.label": "PARA MARCAS",
     "cta.dark.sub": "Estrategia. Creatividad. Impacto real.",
@@ -122,6 +129,10 @@ export const translations = {
       "Influencer de estilo de vida, moda, viajes, comparte contenido, y conecta con su comunidad a través de experiencias personales y momentos significativos.",
     "talentos.andrea.tag_0": "MÚSICA",
     "talentos.andrea.tag_1": "CULTURA URBANA",
+
+    //Scroll wrapper
+    "about.scroll_text":
+      "En Agency LAMB creemos que el verdadero impacto no nace de las métricas vacías, sino de las historias, la autenticidad y la visión detrás de cada talento. Con estrategia, firmeza y cercanía, conectamos marcas con talento auténtico para construir impacto real y reputación duradera.",
   },
 
   en: {
@@ -150,6 +161,10 @@ export const translations = {
     // Clients
     "clients.h1": "CAMPAIGNS THAT CONNECT",
     "clients.h2": "RESULTS THAT SPEAK",
+
+    "talentos.body_part1": "We represent exclusive profiles",
+    "talentos.body_part2": " and carefully selected, ",
+    "talentos.body_part3": "focused on lifestyle and social responsibility.",
     // Ecosistema
     "eco.label": "Our Services",
     "eco.title.pre": "THE LAMB",
@@ -201,6 +216,7 @@ export const translations = {
       "Authentic creators with real communities. It's not about followers — it's about genuine connection with audiences that trust their voice.",
     "talentos.cta1": "GET A QUOTE",
     "talentos.cta2": "JOIN LAMB",
+    "talentos.tags": "LIFESTYLE • SOCIAL RESPONSABILITY",
     // CtaSplit
     "cta.dark.label": "FOR BRANDS",
     "cta.dark.sub": "Strategy. Creativity. Real Impact.",
@@ -244,6 +260,10 @@ export const translations = {
       "Lifestyle, fashion, and travel influencer, she shares content and connects with her community through personal experiences and meaningful moments.",
     "talentos.andrea.tag_0": "MUSIC",
     "talentos.andrea.tag_1": "URBAN CULTURE",
+
+    //Scroll wrapper
+    "about.scroll_text":
+      "At Agency LAMB, we believe that true impact isn't born from empty metrics, but from the stories, authenticity, and vision behind every talent; with strategy, determination, and proximity, we connect brands with authentic talent to build real impact and a lasting reputation.",
   },
 };
 

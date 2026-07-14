@@ -9,71 +9,11 @@ import Talent4 from '@/images/talents-section/talent-4.png'
 import Talent5 from '@/images/talents-section/talent-5.png'
 
 const talents = [
-  {
-    id: 'monica',
-    name: 'MÓNICA',
-    lastname: 'MARQUET',
-    textContent: 'Mónica ha cautivado a más de 250,000 seguidores en Instagram con su estilo gótico y enfoque en el modelaje alternativo',
-    tags: ['ESTILO DE VIDA', 'MODA ALTERNATIVA'],
-    image: Talent1,
-    alt: 'Imagen de influencer Mónica Marquet',
-    social: {
-      instagram: { user: 'monica.marquet', followers: '110.7 K' },
-      tiktok:{ user: 'monica.marquet', followers:'113 k' }
-    }
-  },
-  {
-    id: 'alexa',
-    name: 'ALEXA',
-    lastname: 'ARCHU',
-    textContent: 'Alexa Archu es una joven creativa mexicana que ha conquistado redes sociales con su carisma, talento para la danza y contenido lleno de humor y creatividad.',
-    tags: ['ENTRETENIMIENTO', 'CULTURA'],
-    image: Talent2,
-    alt: 'Imagen de influencer Alexa Archu',
-    social: {
-      instagram: { user: 'alexaarchu', followers: '193 K' },
-      tiktok:{ user: 'alexaarchu', followers:'2.2 M' }
-    }
-  },
-  {
-    id: 'dan',
-    name: 'DAN',
-    lastname: 'PARRA',
-    textContent: 'Dan Parra, destaca por su autenticidad. Su participación en realities y concursos de baile la ha llevado a conectar con una comunidad cercana e inspiradora.',
-    tags: ['MÚSICA', 'CULTURA URBANA'],
-    image: Talent3,
-    alt: 'Imagen de influencer Dan Parra',
-    social: {
-      instagram: { user: 'dannparra', followers: '107 K' },
-      tiktok:{ user: 'dannparra', followers:'147.6 K' }
-    }
-  },
-  {
-    id: 'milo',
-    name: 'MILO',
-    lastname: 'HARF',
-    textContent: 'Miloh, cantautora mexicana y creadora de contenido, comparte música emotiva y auténtica. Firmada con BAM Music, conecta a una comunidad joven y apasionada.',
-    tags: ['MÚSICA', 'CULTURA URBANA'],
-    image: Talent4,
-    alt: 'Imagen de influencer Milo Harf',
-    social: {
-      instagram: { user: 'miloharf', followers: '45.1 K' },
-      tiktok:{ user: 'miloh_____', followers:'346.5 K' }
-    }
-  },
-  {
-    id: 'andrea',
-    name: 'ANDREA',
-    lastname: 'BENTLEY',
-    textContent: 'Influencer de estilo de vida, moda, viajes, comparte contenido, y conecta con su comunidad a través de experiencias personales y momentos significativos.',
-    tags: ['MÚSICA', 'CULTURA URBANA'],
-    image: Talent5,
-    alt: 'Imagen de influencer Andrea Bentley',
-    social: {
-      instagram: { user: 'andreabentley_', followers: '134 K' },
-      tiktok:{ user: 'andreabentley', followers:'373.1 K' }
-    }
-  }
+  { id: 'monica', name: 'MÓNICA', lastname: 'MARQUET', textContent: 'Mónica ha cautivado a más de 250,000 seguidores en Instagram con su estilo gótico y enfoque en el modelaje alternativo', image: Talent1, alt: 'Imagen de influencer Mónica Marquet', social: { instagram: { user: 'monica.marquet', followers: '110.7 K' }, tiktok:{ user: 'monica.marquet', followers:'113 k' } } },
+  { id: 'alexa', name: 'ALEXA', lastname: 'ARCHU', textContent: 'Alexa Archu es una joven creativa mexicana que ha conquistado redes sociales con su carisma, talento para la danza y contenido lleno de humor y creatividad.', image: Talent2, alt: 'Imagen de influencer Alexa Archu', social: { instagram: { user: 'alexaarchu', followers: '193 K' }, tiktok:{ user: 'alexaarchu', followers:'2.2 M' } } },
+  { id: 'dan', name: 'DAN', lastname: 'PARRA', textContent: 'Dan Parra, destaca por su autenticidad. Su participación en realities y concursos de baile la ha llevado a conectar con una comunidad cercana e inspiradora.', image: Talent3, alt: 'Imagen de influencer Dan Parra', social: { instagram: { user: 'dannparra', followers: '107 K' }, tiktok:{ user: 'dannparra', followers:'147.6 K' } } },
+  { id: 'milo', name: 'MILO', lastname: 'HARF', textContent: 'Miloh, cantautora mexicana y creadora de contenido, comparte música emotiva y auténtica. Firmada con BAM Music, conecta a una comunidad joven y apasionada.', image: Talent4, alt: 'Imagen de influencer Milo Harf', social: { instagram: { user: 'miloharf', followers: '45.1 K' }, tiktok:{ user: 'miloh_____', followers:'346.5 K' } } },
+  { id: 'andrea', name: 'ANDREA', lastname: 'BENTLEY', textContent: 'Influencer de estilo de vida, moda, viajes, comparte contenido, y conecta con su comunidad a través de experiencias personales y momentos significativos.', image: Talent5, alt: 'Imagen de influencer Andrea Bentley', social: { instagram: { user: 'andreabentley_', followers: '134 K' }, tiktok:{ user: 'andreabentley', followers:'373.1 K' } } }
 ];
 ---
 
@@ -105,27 +45,18 @@ const talents = [
         AUDIENCIAS QUE <span class="text-gold">CONECTAN</span>
       </p>
       
-      <p class="text-[14px] lg:text-[15px] text-white/55 leading-[1.7] max-w-[400px] mt-2 lg:mt-6" data-i18n="talentos.body">
-        Creadores auténticos con comunidades reales. No es sobre seguidores — es sobre la conexión genuina con audiencias que confían en su voz.
-      </p>
+  <p class="text-[14px] lg:text-lg text-white leading-[1.7] max-w-[400px] mt-2 lg:mt-6">
+  <span class="font-bold" data-i18n="talentos.body_part1">Representamos perfiles exclusivos</span>
+  <span data-i18n="talentos.body_part2"> y cuidadosamente seleccionados, </span>
+  <span class="font-bold" data-i18n="talentos.body_part3">enfocados en estilo de vida y responsabilidad social.</span> 
+</p>
 
-      <div class="mt-4 lg:mt-6 min-h-[auto] lg:min-h-[32px]">
-        {talents.map((talent, index) => (
-          <div 
-            class={`js-talent-tags flex flex-wrap gap-2 transition-all duration-300 ${index === 0 ? 'flex' : 'hidden'}`} 
-            data-tags-idx={index}
-          >
-            {talent.tags.map((tag, tagIdx) => (
-              <span 
-                class="tv2__tag px-3 py-1 bg-white/10 text-white rounded-full text-[10px] lg:text-xs font-semibold uppercase tracking-wider"
-                data-i18n={`talentos.${talent.id}.tag_${tagIdx}`}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        ))}
-      </div>
+   <div 
+  class="mt-4 lg:mt-6 text-gold text-[10px] lg:text-lg uppercase tracking-[1px]" 
+  data-i18n="talentos.tags"
+>
+  ESTILO DE VIDA &bull; RESPONSABILIDAD SOCIAL
+</div>
 
       <div class="flex flex-wrap gap-[10px] lg:gap-[14px] mt-4 lg:mt-8 w-full max-w-md">
         <a href="https://qrkit.co/marcas" target="_blank" class="flex flex-1 justify-center items-center text-center font-sans font-bold text-[11px] lg:text-[12px] tracking-[1.5px] uppercase py-[12px] lg:py-[14px] rounded-xl no-underline transition-all duration-300 bg-gold text-white hover:bg-[#a8852e] hover:-translate-y-[3px]" data-i18n="talentos.cta1">COTIZAR CAMPAÑA</a>
@@ -137,7 +68,7 @@ const talents = [
   <!-- COLUMNA DERECHA: FOTOS Y TARJETAS INTERACTIVAS -->
   <div class="relative overflow-hidden min-h-[540px] sm:min-h-[580px] lg:min-h-[720px]">
     
-<Image 
+    <Image 
       class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto max-w-full h-[490px] sm:h-[580px] lg:h-[660px] object-contain object-bottom transition-opacity duration-[380ms] z-[1]"
       src={talents[0].image}       
       alt={`${talents[0].name} ${talents[0].lastname}`}
@@ -186,15 +117,9 @@ const talents = [
   const currEl       = document.getElementById('tv2Curr')!;
   const totalEl      = document.getElementById('tv2Total')!;
   const cards        = document.querySelectorAll('.js-talent-card');
-  const tagsGroups   = document.querySelectorAll('.js-talent-tags');
   const totalTalents = cards.length;
 
   const clientTalents = JSON.parse(photoEl?.getAttribute('data-all-photos') || '[]');
-
-  clientTalents.forEach((t: { src: string; alt: string }) => {
-    const img = new Image();
-    img.src = t.src;
-  });
 
   totalEl.textContent = String(totalTalents);
 
@@ -214,11 +139,6 @@ const talents = [
         card.classList.remove('block', 'opacity-100', 'scale-100');
       }
     });
-    tagsGroups.forEach((group) => {
-      const tagsIdx = parseInt(group.getAttribute('data-tags-idx') || '0', 10);
-      if (tagsIdx === idx) { group.classList.remove('hidden'); group.classList.add('flex'); } 
-      else { group.classList.add('hidden'); group.classList.remove('flex'); }
-    });
   }
 
   function navigate(delta: number): void {
@@ -228,19 +148,12 @@ const talents = [
 
     setTimeout(() => {
       current = (current + delta + totalTalents) % totalTalents;
-
-      const nextSrc = clientTalents[current]?.src;
-      const preload = new Image();
-      preload.onload = () => {
-        update(current);
-        photoEl.classList.remove('fading-photo');
-        cardGroup.classList.remove('fading');
-      };
-      preload.src = nextSrc;
+      update(current);
+      photoEl.classList.remove('fading-photo');
+      cardGroup.classList.remove('fading');
     }, 380);
   }
 
-  update(0);
   document.getElementById('tv2Prev')?.addEventListener('click', () => navigate(-1));
   document.getElementById('tv2Next')?.addEventListener('click', () => navigate(1));
 </script>
