@@ -113,27 +113,47 @@ const talents = [
 
 <script>
   let current = 0;
-  const photoEl      = document.getElementById('tv2Photo') as HTMLImageElement;
-  const currEl       = document.getElementById('tv2Curr')!;
-  const totalEl      = document.getElementById('tv2Total')!;
-  const cards        = document.querySelectorAll('.js-talent-card');
+
+  const photoEl = document.getElementById('tv2Photo') as HTMLImageElement;
+  const currEl = document.getElementById('tv2Curr')!;
+  const totalEl = document.getElementById('tv2Total')!;
+  const cardGroup = document.getElementById('tv2CardGroup')!;
+  const cards = document.querySelectorAll('.js-talent-card');
   const totalTalents = cards.length;
 
-  const clientTalents = JSON.parse(photoEl?.getAttribute('data-all-photos') || '[]');
+  const clientTalents = JSON.parse(
+    photoEl?.getAttribute('data-all-photos') || '[]'
+  );
 
   totalEl.textContent = String(totalTalents);
+
+
+  clientTalents.forEach((talent: { src: string }) => {
+    const img = new Image();
+    img.src = talent.src;
+  });
 
   function update(idx: number): void {
     if (photoEl && clientTalents[idx]) {
       photoEl.src = clientTalents[idx].src;
       photoEl.alt = clientTalents[idx].alt;
     }
+
     currEl.textContent = String(idx + 1);
+
     cards.forEach((card) => {
-      const cardIdx = parseInt(card.getAttribute('data-card-idx') || '0', 10);
+      const cardIdx = parseInt(
+        card.getAttribute('data-card-idx') || '0',
+        10
+      );
+
       if (cardIdx === idx) {
         card.classList.remove('hidden');
-        setTimeout(() => { card.classList.add('block', 'opacity-100', 'scale-100'); card.classList.remove('opacity-0', 'scale-95'); }, 10);
+
+        requestAnimationFrame(() => {
+          card.classList.add('block', 'opacity-100', 'scale-100');
+          card.classList.remove('opacity-0', 'scale-95');
+        });
       } else {
         card.classList.add('hidden', 'opacity-0', 'scale-95');
         card.classList.remove('block', 'opacity-100', 'scale-100');
@@ -141,19 +161,43 @@ const talents = [
     });
   }
 
-  function navigate(delta: number): void {
-    const cardGroup = document.getElementById('tv2CardGroup')!;
-    photoEl.classList.add('fading-photo');
-    cardGroup.classList.add('fading');
+  let isAnimating = false;
 
-    setTimeout(() => {
-      current = (current + delta + totalTalents) % totalTalents;
-      update(current);
-      photoEl.classList.remove('fading-photo');
-      cardGroup.classList.remove('fading');
-    }, 380);
+  function navigate(delta: number): void {
+    if (isAnimating) return;
+
+    isAnimating = true;
+
+    const next = (current + delta + totalTalents) % totalTalents;
+
+    const img = new Image();
+    img.src = clientTalents[next].src;
+
+    img.onload = () => {
+      photoEl.classList.add('fading-photo');
+      cardGroup.classList.add('fading');
+
+      setTimeout(() => {
+        current = next;
+        update(current);
+
+        photoEl.classList.remove('fading-photo');
+        cardGroup.classList.remove('fading');
+
+        isAnimating = false;
+      }, 180);
+    };
+
+    img.onerror = () => {
+      isAnimating = false;
+    };
   }
 
-  document.getElementById('tv2Prev')?.addEventListener('click', () => navigate(-1));
-  document.getElementById('tv2Next')?.addEventListener('click', () => navigate(1));
+  document
+    .getElementById('tv2Prev')
+    ?.addEventListener('click', () => navigate(-1));
+
+  document
+    .getElementById('tv2Next')
+    ?.addEventListener('click', () => navigate(1));
 </script>
